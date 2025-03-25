@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+        }
+
+        /* Container Styling */
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            color: white;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* Form Styling */
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input:focus, textarea:focus {
+            background: rgba(255, 255, 255, 0.6);
+            outline: none;
+            color: #000;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        /* Submit Button */
+        #sub {
+            background: #ff5e57;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        #sub:hover {
+            background: #ff3b3b;
+            transform: scale(1.05);
+        }
+
+        #sub:disabled {
+            background: gray;
+            cursor: not-allowed;
+        }
+
+        /* Message Display */
+        #msg {
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Apply for a Job</h2>
+        <h1 id="msg"></h1>
+        <form id="jobForm" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+            <input type="submit" id="sub" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        document.querySelector("#jobForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let form = e.target;
+    let submitButton = document.querySelector("#sub");
+    let messageDiv = document.querySelector("#msg");
+
+    submitButton.textContent = "Submitting...";
+    submitButton.disabled = true;
+
+    let formData = new FormData(form);
+
+    try {
+        let response = await fetch("https://script.google.com/macros/s/AKfycbxLFvAj9mHX0RalOXoczq-hu2JUTvXCB1aMusFIlOHYm2xdjiUkcv7HEnF-V8TQwGAGtw/exec", {
+            method: "POST",
+            body: formData
+        });
+
+        let result = await response.json();
+        console.log("Server Response:", result);
+
+        if (result.status === "Success") {
+            messageDiv.innerHTML = "✅ Success! Your application has been submitted.";
+            messageDiv.style.color = "lightgreen";
+            form.reset();
+        } else {
+            messageDiv.innerHTML = "❌ Error! " + result.message;
+            messageDiv.style.color = "red";
+        }
+    } catch (error) {
+        messageDiv.innerHTML = "❌ Error submitting form. Please try again.";
+        messageDiv.style.color = "red";
+        console.error("Submission Error:", error);
+    } finally {
+        submitButton.textContent = "Submit Application";
+        submitButton.disabled = false;
+    }
+});
+
+    </script>
+
+</body>
+</html>

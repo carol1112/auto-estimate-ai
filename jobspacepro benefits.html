@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Space Pro</title>
+    <link rel="stylesheet" href="jobspacepro.css">
+    <style>
+        hr {
+            border: none; /* Remove default border */
+            height: 6px; /* Set height */
+            background: greenyellow; /* Solid color */
+            border-radius: 3px; /* Rounded ends */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+            margin: 150px 0 30px 0; /* Add spacing */
+        }
+        </style>
+            
+    
+</head>
+<body>
+
+    
+    <!-- Fixed Header Navigation -->
+    <header>
+      <div class="logo">
+          <img src="Job Space Pros logo.gif" alt="Job Space Pro Logo" width="500" height="500">
+       
+      </div>
+      <nav>
+          <ul class="menu">
+              <li><a href="Job Space Pro.html">Home</a></li>
+              <li class="dropdown">
+                  <a href="jobspacepro about.html">About ▾</a>
+                  <ul class="dropdown-menu">
+                      <li><a href="jobspacepro mission.html">Our Mission</a></li>
+                      <li><a href="jobspacepro faqs.html">FAQS</a></li>
+                  </ul>
+              </li>
+              <li><a href="jobspacepro service.html">Services</a></li>
+              <li class="dropdown">
+                  <a href="jobspacepro why choose us.html">Why Choose Us ▾</a>
+                  <ul class="dropdown-menu">
+                      <li><a href="jobspacepro benefits.html">Benefits</a></li>
+                      <li><a href="jobspacepro testimonial.html">Testimonials</a></li>
+                    
+                  </ul>
+              </li>
+              <li><a href="jobspacepro contact.html">Apply Now</a></li>
+          </ul>
+      </nav>
+ 
+  </header>
+  <hr>
+  <section id="benefits">
+    <div class="section-heading">
+    <h2>Work from Home Benefits</h2>
+</div>
+<div class="benefits-carousel">
+    <div class="carousel-track">
+        
+        <!-- Benefit 1 -->
+
+        <div class="benefit-card">
+            <div class="benefit-icon">🌟</div>
+            <h3 class="benefit-title">1. Work-Life Flexibility</h3>
+            <ul class="benefit-list">
+                <li>Customizable schedules for productivity peaks</li>
+                <li>Location independence (home, cafes, traveling)</li>
+                <li>No daily commute (save 1-2+ hours daily)</li>
+            </ul>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="benefit-card">
+            <div class="benefit-icon">💸</div>
+            <h3 class="benefit-title">2. Financial Savings</h3>
+            <ul class="benefit-list">
+                <li>Reduced transportation & meal costs</li>
+                <li>Potential home office tax deductions</li>
+                <li>Lower relocation/stress costs</li>
+            </ul>
+        </div>
+    
+      <!-- Career Card 3-->
+        <div class="benefit-card">
+        <div class="benefit-icon">🚀</div>
+        <h3 class="benefit-title">Career Growth</h3>
+       <ul class="benefit-list">
+          <li>Global opportunities</li>
+          <li>Skill development</li>
+        <li>Cross-cultural exposure</li>
+       </ul>
+   </div>
+        
+
+        <!-- Benefit 4-->
+        <div class="benefit-card">
+            <div class="benefit-icon">🚫🚗</div>
+            <h3 class="benefit-title">No Commute Costs</h3>
+            <ul class="benefit-list">
+                <li>Save on transportation & meals</li>
+                <li>Reclaim personal time</li>
+            </ul>
+        </div>
+     <!-- Benefit 5 -->
+        <div class="benefit-card">
+            <div class="benefit-icon">🛡️</div>
+            <h3 class="benefit-title">Safety & Comfort</h3>
+            <ul class="benefit-list">
+                <li>Controlled environment</li>
+                <li>Custom workspace setup</li>
+                <li>Healthier work conditions</li>
+            </ul>
+        </div>
+
+          <!-- Family Card 6-->
+          <div class="benefit-card">
+            <div class="benefit-icon">👨👩👧👦</div>
+            <h3 class="benefit-title">Family Time</h3>
+            <ul class="benefit-list">
+                <li>Better childcare options</li>
+                <li>Elder/pet care flexibility</li>
+                <li>Work-life integration</li>
+            </ul>
+        </div>
+         <!-- Health Card 7-->
+         <div class="benefit-card">
+            <div class="benefit-icon">🧘</div>
+            <h3 class="benefit-title">Health & Wellness</h3>
+            <ul class="benefit-list">
+                <li>Reduced stress levels</li>
+                <li>Time for exercise</li>
+                <li>Better mental health</li>
+            </ul>
+        </div>
+        <!-- Productivity Card 8 -->
+        <div class="benefit-card">
+            <div class="benefit-icon">📈</div>
+            <h3 class="benefit-title">Increased Productivity</h3>
+            <ul class="benefit-list">
+                <li>Fewer office distractions</li>
+                <li>Personalized workspace</li>
+                <li>Flexible work hours</li>
+            </ul>
+        </div>
+
+        <!-- Add remaining benefits following same structure -->
+    </div>
+
+    <button class="carousel-button prev">❮</button>
+    <button class="carousel-button next">❯</button>
+    
+    <div class="carousel-indicators">
+        <div class="indicator active"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+       
+    </div>
+</div>
+
+<script>
+    const track = document.querySelector('.carousel-track');
+    const cards = document.querySelectorAll('.benefit-card');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    
+    let currentIndex = 0;
+    const cardWidth = cards[0].offsetWidth;
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    nextButton.addEventListener('click', () => {
+        if(currentIndex < cards.length - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    prevButton.addEventListener('click', () => {
+        if(currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+    });
+
+    // Auto-advance every 7 seconds
+    setInterval(() => {
+        if(currentIndex < cards.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateCarousel();
+    }, 2000);
+</script>
+</section>
+
+
+</body>
+</html>

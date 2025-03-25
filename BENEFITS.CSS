@@ -1,0 +1,143 @@
+/*Work From Home Benefits*/
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .benefits-section {
+        padding: 80px 20px;
+        background: #f8f9fa;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #2d3436;
+        margin-bottom: 50px;
+    }
+
+    .benefits-slider {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slider-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .benefit-card {
+        min-width: 100%;
+        padding: 30px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin: 0 15px;
+        flex-shrink: 0;
+    }
+
+    .benefit-icon {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .benefit-title {
+        font-size: 1.4rem;
+        color: #2d3436;
+        margin-bottom: 15px;
+    }
+
+    .benefit-list {
+        list-style: none;
+    }
+
+    .benefit-list li {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: start;
+        gap: 10px;
+    }
+
+    .benefit-list li::before {
+        content: "✓";
+        color: #00b894;
+        font-weight: bold;
+    }
+
+    .slider-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.9);
+        border: none;
+        padding: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 10;
+    }
+
+    .slider-nav.prev {
+        left: -50px;
+    }
+
+    .slider-nav.next {
+        right: -50px;
+    }
+
+    .slider-indicators {
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+    }
+
+    .indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+        background: #00b894;
+        transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 2rem;
+        }
+        
+        .benefit-card {
+            padding: 25px;
+            margin: 0 10px;
+        }
+        
+        .slider-nav {
+            padding: 10px;
+        }
+        
+        .slider-nav.prev {
+            left: -40px;
+        }
+        
+        .slider-nav.next {
+            right: -40px;
+        }
+    }

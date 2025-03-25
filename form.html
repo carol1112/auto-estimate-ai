@@ -1,0 +1,62 @@
+<section id="application-form">
+    <h2>Apply for a Remote Job</h2>
+    <p>Fill out the form below to apply for a position at Job Space Pro.</p>
+   
+    <form action="submit.php" method="POST" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Contact Information</legend>
+            
+            <!-- First Name -->
+            <p>
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Carol" 
+                       autocomplete="given-name" required autofocus>
+            </p>
+
+            <!-- Last Name -->
+            <p>
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Villanueva" 
+                       autocomplete="family-name" required>
+            </p>
+
+            <!-- Address -->
+            <p>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" 
+                       autocomplete="street-address" required>
+            </p>
+
+            <!-- Phone Number -->
+            <p>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="12345678912" 
+                       pattern="[0-9]{11}" autocomplete="tel" required>
+            </p>
+
+            <!-- Position to Apply -->
+            <p>
+                <label for="position">Position to Apply:</label>
+                <input type="text" id="position" name="position" required>
+            </p>
+
+            <!-- File Upload -->
+            <p>
+                <label for="resume">Upload Resume (PDF/DOC):</label>
+                <input type="file" id="resume" name="resume" 
+                       accept=".pdf,.doc,.docx" required>
+            </p>
+
+            <!-- Message -->
+            <p>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </p>
+        </fieldset>
+
+        <!-- Submit Button -->
+        <p>
+            <button type="submit">Submit Application</button>
+        </p>
+    </form>
+</section>

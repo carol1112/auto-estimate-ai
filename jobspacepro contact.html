@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Space Pro</title>
+    <link rel="stylesheet" href="jobspacepro.css">
+   <style>
+hr {
+    border: none; /* Remove default border */
+    height: 6px; /* Set height */
+    background: greenyellow; /* Solid color */
+    border-radius: 3px; /* Rounded ends */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    margin: 150px 0 30px 0; /* Add spacing */
+}
+</style>
+    
+</head>
+<body>
+
+    
+    <!-- Fixed Header Navigation -->
+    <header>
+      <div class="logo">
+          <img src="Job Space Pros logo.gif" alt="Job Space Pro Logo" width="500" height="500">
+       
+      </div>
+      <nav>
+          <ul class="menu">
+              <li><a href="Job Space Pro.html">Home</a></li>
+              <li class="dropdown">
+                  <a href="jobspacepro about.html">About ▾</a>
+                  <ul class="dropdown-menu">
+                      <li><a href="jobspacepro mission.html">Our Mission</a></li>
+                      <li><a href="jobspacepro faqs.html">FAQS</a></li>
+                  </ul>
+              </li>
+              <li><a href="jobspacepro service.html">Services</a></li>
+              <li class="dropdown">
+                  <a href="jobspacepro why choose us.html">Why Choose Us ▾</a>
+                  <ul class="dropdown-menu">
+                      <li><a href="jobspacepro benefits.html">Benefits</a></li>
+                      <li><a href="jobspacepro testimonial.html">Testimonials</a></li>
+                    
+                  </ul>
+              </li>
+              <li><a href="jobspacepro contact.html">Apply Now</a></li>
+          </ul>
+      </nav>
+ 
+  </header>
+
+  <section id="about-applicants">
+    <hr class="animated-hr"> 
+    <h1>Work from Anywhere with Job Space Pro</h1>
+    <p>At <strong>Job Space Pro</strong>,we connect talented professionals like you with <strong>top remote job opportunities</strong> worldwide.</p>
+    <p>Whether you're looking for <strong>flexibility, career growth, or work-life balance</strong>, we help you find <strong>legitimate, high-paying remote jobs</strong> with trusted companies.</p>
+</section>
+
+<!-- How to Apply -->
+<section id="apply">
+<h2>How to Apply?</h2>
+<ol>
+  <p>️⃣ <strong>Browse Remote Jobs</strong> – Explore open positions that match your skills.</p>
+  <p>️⃣ <strong>Submit Your Application</strong> – Fill out our online application form.</p>
+  <p>️⃣ <strong>Get Matched & Hired</strong> – Our team connects you with the right employer.</p>
+  <p>️⃣ <strong>Start Your Remote Career!</strong> – Work from home and enjoy a flexible job.</p>
+</ol>
+</section>
+<hr>
+  <section id="sheetform">
+    <div class="container">
+      <div class="form-header">
+        <h2>KICK START YOUR CAREER</h2>
+        <h1>Interested in working together? Fill out some info and we will be with you every step of the way! We can't wait to hear from you!</h1>
+      </div>
+  
+      <!-- Message Container -->
+      <div id="msg"></div>
+  
+      <!-- Form Container -->
+      <form id="jobForm">
+        <input type="hidden" name="formType" value="jobApplication">
+        
+        <div class="input-group">
+          <input type="text" name="name" id="nameInput" placeholder=" " required>
+          <label for="nameInput">Full Name</label>
+        </div>
+  
+        <div class="input-group">
+          <input type="email" name="email" id="emailInput" placeholder=" " required>
+          <label for="emailInput">Email Address</label>
+        </div>
+  
+        <div class="input-group">
+          <input type="tel" name="phone" id="phoneInput" placeholder=" " required>
+          <label for="phoneInput">Phone Number</label>
+        </div>
+  
+        <div class="input-group">
+          <input type="text" name="address" id="addressInput" placeholder=" " required>
+          <label for="addressInput">Mailing Address</label>
+        </div>
+  
+        <div class="input-group">
+          <input type="text" name="job" id="jobInput" placeholder=" " required>
+          <label for="jobInput">Job Interested</label>
+        </div>
+  
+        <div class="input-group">
+          <textarea name="message" id="messageInput" placeholder=" " rows="5" required></textarea>
+          <label for="messageInput">Your Message</label>
+        </div>
+  
+        <button type="submit">Send</button>
+        <img src="job space pro qr code.png" alt="Job Space Pro QR Code" class="qr-code1">
+    </div>
+      </form>
+    </div>
+    <hr>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzcvz4RB2VqYAAMjLoCQFh7vySLHKwMx5xFQszALRx7ie6QqNob6kl3jglK0h08F6q3Ww/exec';
+    
+    document.getElementById('jobForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const msgDiv = document.getElementById('msg');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '<div class="spinner"></div> Sending...';
+    submitBtn.disabled = true;
+    msgDiv.classList.remove('success', 'error', 'show'); // Reset message state
+    
+    try {
+        const formData = new URLSearchParams(new FormData(form));
+        
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData
+        });
+    
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        
+        const result = await response.json();
+        
+        if (result.status === "success") {
+            form.reset();
+            msgDiv.textContent = '✅ Application Submitted Successfully!';
+            msgDiv.classList.add('success', 'show'); // Add 'show' class
+        } else {
+            throw new Error(result.message || 'Submission failed');
+        }
+    } catch (error) {
+        msgDiv.textContent = `❌ Error: ${error.message}`;
+        msgDiv.classList.add('error', 'show'); // Add 'show' class
+    } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        setTimeout(() => {
+            msgDiv.classList.remove('success', 'error', 'show'); // Hide message after 5 seconds
+            msgDiv.textContent = '';
+        }, 5000);
+    }
+});
+    </script>
+ <hr>
+</section>   
+
+</body>
+</html>

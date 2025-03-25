@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs/Services for Remote Staff</title>
+    <link rel="stylesheet" href="jobspacepro.css">
+</head>
+<body>
+    <!-- Fixed Header Navigation -->
+    <header>
+        <div class="logo">
+            <img src="Job Space Pros logo.gif" alt="Job Space Pro Logo" width="500" height="500">
+         
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="Job Space Pro.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="jobspacepro about.html">About ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="jobspacepromission.html">Our Mission</a></li>
+                        <li><a href="jobspacepro faqs.html">FAQS</a></li>
+                    </ul>
+                </li>
+                <li><a href="jobspacepro service.html">Services</a></li>
+                <li class="dropdown">
+                    <a href="jobspacepro why choose us.html">Why Choose Us ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="jobspacepro benefits.html">Benefits</a></li>
+                        <li><a href="jobspacepro testimonial.html">Testimonials</a></li>
+                      
+                    </ul>
+                </li>
+                <li><a href="jobspacepro contact.html">Apply Now</a></li>
+            </ul>
+        </nav>
+   
+    </header>
+  <hr > 
+<!-- Image Carousel -->
+<section class="image-carousel">
+   <div class="image-carousel__container">
+       <div class="image-carousel__slides">
+           <div class="image-carousel__slide">
+               <img src="REMOTE STAFF1.jpg" alt="Remote team working">
+           </div>
+           <div class="image-carousel__slide">
+               <img src="REMOTE STAFF2.jpg" alt="Home office setup">
+           </div>
+           <div class="image-carousel__slide">
+               <img src="REMOTE STAFF3.jpg" alt="Virtual meeting">
+           </div>
+           <div class="image-carousel__slide">
+               <img src="REMOTE STAFF4.jpg" alt="Collaboration tools">
+           </div>
+           <div class="image-carousel__slide">
+               <img src="REMOTE STAFF5.jpg" alt="Digital nomad">
+           </div>
+           <div class="image-carousel__slide">
+               <img src="REMOTE STAFF6.jpg" alt="Remote work benefits">
+           </div>
+           <div class="image-carousel__slide">
+               <img src="wfh1.png" alt="Remote work benefits">
+           </div>
+           <div class="image-carousel__slide">
+               <img src="wfh2.png" alt="Remote work benefits">
+           </div>
+           <div class="image-carousel__slide">
+               <img src="wfh3.png" alt="Remote work benefits">
+           </div>
+           <div class="image-carousel__slide">
+               <img src="wfh4.png" alt="Remote work benefits">
+           </div>
+       </div>
+
+       <button class="image-carousel__btn image-carousel__prev">❮</button>
+       <button class="image-carousel__btn image-carousel__next">❯</button>
+       
+       <div class="image-carousel__indicators"></div>
+   </div>
+
+
+<script>
+   // Image Carousel (Self-contained IIFE)
+   (function() {
+       const container = document.querySelector('.image-carousel__container');
+       if (!container) {
+           console.error('Carousel container not found!');
+           return;
+       }
+
+       const slidesContainer = container.querySelector('.image-carousel__slides');
+       const slides = container.querySelectorAll('.image-carousel__slide');
+       const indicatorsContainer = container.querySelector('.image-carousel__indicators');
+       const prevBtn = container.querySelector('.image-carousel__prev');
+       const nextBtn = container.querySelector('.image-carousel__next');
+
+       if (!slidesContainer || !indicatorsContainer || !prevBtn || !nextBtn) {
+           console.error('Required carousel elements missing!');
+           return;
+       }
+
+       let currentIndex = 0;
+       let autoPlayInterval;
+       let isHovered = false;
+       let isTransitioning = false;
+
+       // Create indicators
+       slides.forEach((_, index) => {
+           const indicator = document.createElement('div');
+           indicator.className = 'image-carousel__indicator';
+           indicator.addEventListener('click', () => !isTransitioning && goToSlide(index));
+           indicatorsContainer.appendChild(indicator);
+       });
+       const indicators = container.querySelectorAll('.image-carousel__indicator');
+       indicators[0]?.classList.add('active');
+
+       // Update carousel position
+       const updateCarousel = () => {
+           isTransitioning = true;
+           slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+           
+           indicators.forEach((indicator, index) => {
+               indicator.classList.toggle('active', index === currentIndex);
+           });
+           
+           // Reset transition lock after animation
+           setTimeout(() => {
+               isTransitioning = false;
+           }, 500);
+       };
+
+       // Navigation functions
+       const nextSlide = () => {
+           if (isTransitioning) return;
+           currentIndex = (currentIndex + 1) % slides.length;
+           updateCarousel();
+       };
+
+       const prevSlide = () => {
+           if (isTransitioning) return;
+           currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+           updateCarousel();
+       };
+
+       const goToSlide = (index) => {
+           if (isTransitioning) return;
+           currentIndex = index;
+           updateCarousel();
+       };
+
+       // Auto-play functionality
+       const startAutoPlay = () => {
+           autoPlayInterval = setInterval(() => {
+               if (!isHovered && !isTransitioning) {
+                   nextSlide();
+               }
+           }, 2000);
+       };
+
+       // Event listeners
+       const handleUserInteraction = () => {
+           clearInterval(autoPlayInterval);
+           startAutoPlay();
+       };
+
+       prevBtn.addEventListener('click', () => {
+           prevSlide();
+           handleUserInteraction();
+       });
+
+       nextBtn.addEventListener('click', () => {
+           nextSlide();
+           handleUserInteraction();
+       });
+
+       container.addEventListener('mouseenter', () => isHovered = true);
+       container.addEventListener('mouseleave', () => isHovered = false);
+
+       // Handle window resize
+       let resizeTimer;
+       window.addEventListener('resize', () => {
+           clearTimeout(resizeTimer);
+           resizeTimer = setTimeout(() => {
+               slidesContainer.style.transition = 'none';
+               updateCarousel();
+               setTimeout(() => {
+                   slidesContainer.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+               }, 10);
+           }, 250);
+       });
+
+       // Initialize
+       startAutoPlay();
+       updateCarousel();
+
+       // Cleanup
+       window.addEventListener('beforeunload', () => {
+           clearInterval(autoPlayInterval);
+       });
+   })();
+</script>
+</section>
+    <section id="Learn-More">
+        <h1>Jobs/Services for Remote Staff</h1>
+        <h2>1.Virtual Assistance</h2>
+        <p>Administrative support, scheduling, and email management.</p>
+        <h2>2.Customer Support</h2>
+        <p> Remote help desks, chat support, and phone support for customers.</p>
+        <h2>3.IT Support and Help Desk Services</h2>
+        <p>Technical support, troubleshooting, and system maintenance.</p>
+        <h2>4.Software Development</h2>
+        <p>Custom software solutions, app development, and website design.</p>
+        <h2>5.Digital Marketing</h2>
+        <p>SEO, social media management, content creation, and email marketing.</p>
+        <h2>6.Graphic Design</h2>
+        <p>Branding, marketing materials, and digital content creation.</p>
+        <h2>7.Content Writing and Copywriting</h2>
+        <p>Blog posts, articles, website copy, and marketing materials.</p>
+        <h2>8.Data Entry and Management</h2>
+        <p>Data processing, database management, and record keeping.</p>
+        <h2>9.Accounting and Bookkeeping</h2>
+        <p>Financial reporting, invoicing, and expense tracking.</p>
+        <h2>10.Project Management</h2>
+        <p>Planning, execution, and monitoring of projects using remote collaboration tools..</p>
+        <br>
+        <a href="Job Space Pro.html#home" class="btn">Back to Home</a>
+
+    </section>
+
+</body>
+</html>

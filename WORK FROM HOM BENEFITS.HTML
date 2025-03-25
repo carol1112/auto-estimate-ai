@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work From Home Benefits</title>
+    <link rel="stylesheet" href="BENEFITS.CSS">
+</head>
+<body>
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Key Work-From-Home Benefits</h2>
+            
+            <div class="benefits-slider">
+                <div class="slider-track">
+                    <!-- Cards remain the same as original -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌟</div>
+                        <h3 class="benefit-title">Work-Life Flexibility</h3>
+                        <ul class="benefit-list">
+                            <li>Customizable work schedules</li>
+                            <li>Location independence</li>
+                            <li>No daily commute</li>
+                        </ul>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌟</div>
+                        <h3 class="benefit-title">Work-Life Flexibility</h3>
+                        <ul class="benefit-list">
+                            <li>Customizable work schedules</li>
+                            <li>Location independence</li>
+                            <li>No daily commute</li>
+                        </ul>
+                    </div>
+                    <!-- Other benefit cards (same structure) -->
+                    <!-- Paste all 7 benefit cards here -->
+                    
+                </div>
+
+                <button class="slider-nav prev">❮</button>
+                <button class="slider-nav next">❯</button>
+                
+                <div class="slider-indicators">
+                    <!-- Add indicators based on number of cards -->
+                    <div class="indicator active"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const track = document.querySelector('.slider-track');
+        const slides = document.querySelectorAll('.benefit-card');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        
+        let currentIndex = 0;
+        const slideWidth = slides[0].offsetWidth + 30; // Include margin
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Auto-advance every 5 seconds
+        let autoSlide = setInterval(() => {
+            currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+            updateSlider();
+        }, 5000);
+
+        // Navigation controls
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+            updateSlider();
+            resetAutoSlide();
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+            updateSlider();
+            resetAutoSlide();
+        });
+
+        // Indicator controls
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+                resetAutoSlide();
+            });
+        });
+
+        // Reset autoslide timer on interaction
+        function resetAutoSlide() {
+            clearInterval(autoSlide);
+            autoSlide = setInterval(() => {
+                currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+                updateSlider();
+            }, 5000);
+        }
+
+        // Pause on hover
+        track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+        track.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(() => {
+                currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+                updateSlider();
+            }, 5000);
+        });
+
+        // Initialize slider
+        updateSlider();
+    </script>
+</body>
+</html>
