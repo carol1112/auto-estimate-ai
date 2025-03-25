@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man Power Force</title>
+    <link rel="stylesheet" href="Man Power Force.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+     <!-- Fixed Header Navigation -->
+     <header>
+        <div class="logo">
+            <img src="manpowerforcelogo.gif" alt="Job Space Pro Logo" width="700" height="700">
+           
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="Man Power Force.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="manpower about.html">About ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="manpower mission.html">Our Mission</a></li>
+                        <li><a href="manpower faqs.html">FAQS</a></li>
+                    </ul>
+                </li>
+                <li><a href="manpower service.html">Services</a></li>
+                <li class="dropdown">
+                    <a href="manpower why-choose.html">Why Choose Us ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="manpower testimonial.html">Testimonials</a></li>    
+                    </ul>
+                </li>
+                <li><a href="manpower contact.html">Contact</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+    <!-- Testimonials Slider Section -->
+     <hr>
+     <br>
+<section class="testimonials-slider" id="testimonials">
+    <div class="container2">
+      <h2>What Our Clients Say</h2>
+      <p class="subtitle">Hear from our satisfied clients about their experience with Man Power Force.</p>
+  
+      <!-- Slider Container -->
+      <div class="testimonials-slider1">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-slide active">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="testimonial-text">
+            "Man Power Force provided us with exceptional remote staff who seamlessly integrated into our team. Their professionalism and expertise are unmatched!"
+          </p>
+          <div class="client-info">
+            <h4>John Doe</h4>
+            <p>CEO, Tech Solutions Inc.</p>
+          </div>
+        </div>
+  
+        <!-- Testimonial 2 -->
+        <div class="testimonial-slide">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="testimonial-text">
+            "The remote staffing solutions from Man Power Force have been a game-changer for our business. Highly recommended!"
+          </p>
+          <div class="client-info">
+            <h4>Jane Smith</h4>
+            <p>Founder, Green Energy Co.</p>
+          </div>
+        </div>
+  
+        <!-- Testimonial 3 -->
+        <div class="testimonial-slide">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="testimonial-text">
+            "We were impressed by the quality of talent provided by Man Power Force. They truly understand our needs and deliver results."
+          </p>
+          <div class="client-info">
+            <h4>Michael Brown</h4>
+            <p>Operations Manager, Logistics Pro</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Navigation Buttons -->
+      <div class="testimonials-nav">
+        <button class="testimonials-prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="testimonials-next-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+  
+      <!-- Dots/Indicators -->
+      <div class="testimonials-dots">
+        <span class="testimonials-dot active"></span>
+        <span class="testimonials-dot"></span>
+        <span class="testimonials-dot"></span>
+      </div>
+    </div>
+    <SCRIPT>document.addEventListener("DOMContentLoaded", function () {
+        const testimonialSlides = document.querySelectorAll(".testimonial-slide");
+        const testimonialDots = document.querySelectorAll(".testimonials-dot");
+        let currentTestimonialSlide = 0;
+      
+        // Function to show a specific testimonial slide
+        function showTestimonialSlide(index) {
+          testimonialSlides.forEach((slide) => {
+            slide.classList.remove("active", "prev", "next");
+            slide.style.opacity = 0;
+          });
+      
+          testimonialDots.forEach((dot) => dot.classList.remove("active"));
+      
+          testimonialSlides[index].classList.add("active");
+          testimonialSlides[index].style.opacity = 1;
+      
+          testimonialDots[index].classList.add("active");
+        }
+      
+        // Function to show the next testimonial slide
+        function showNextTestimonialSlide() {
+          currentTestimonialSlide = (currentTestimonialSlide + 1) % testimonialSlides.length;
+          showTestimonialSlide(currentTestimonialSlide);
+        }
+      
+        // Function to show the previous testimonial slide
+        function showPrevTestimonialSlide() {
+          currentTestimonialSlide = (currentTestimonialSlide - 1 + testimonialSlides.length) % testimonialSlides.length;
+          showTestimonialSlide(currentTestimonialSlide);
+        }
+      
+        // Initialize the testimonial slider
+        function initializeTestimonialSlider() {
+          showTestimonialSlide(currentTestimonialSlide);
+      
+          document.querySelector(".testimonials-next-btn").addEventListener("click", showNextTestimonialSlide);
+          document.querySelector(".testimonials-prev-btn").addEventListener("click", showPrevTestimonialSlide);
+      
+          testimonialDots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+              currentTestimonialSlide = index;
+              showTestimonialSlide(currentTestimonialSlide);
+            });
+          });
+      
+          setInterval(showNextTestimonialSlide, 3000);
+        }
+      
+        initializeTestimonialSlider();
+      });</SCRIPT>
+  </section>
+    </body>
+    </html>
