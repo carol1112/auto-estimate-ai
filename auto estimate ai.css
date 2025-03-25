@@ -961,46 +961,48 @@ button[type="submit"] {
 /*mission*/
 #mission {
   font-family: Arial, sans-serif;
-  height: 50vh;
+  min-height: 100vh; /* Changed from fixed height to min-height */
   background-color: #f8f9fa;
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center horizontally */
-  justify-content: flex-start; /* Align content to the top */
-  padding: 30px 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 #mission h1 {
   color: purple;
-  margin-bottom: 30px; /* Add space below the h1 */
-  text-align: center; /* Ensure text is centered */
-  width: 100%; /* Take full width */
-  padding-top: 50px; /* Add padding at the top */
-  font-size: 2.5rem; /* Adjust font size as needed */
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
+  padding: 20px 0;
 }
 
 /* Slider Container */
 .slider-container {
-  width: 80%;
+  width: 90%;
   max-width: 900px;
-  height: 350px;
+  height: auto; /* Changed from fixed height */
+  min-height: 300px; /* Minimum height */
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   position: relative;
-  margin: 0 auto; /* Center the slider container */
+  margin: 0 auto;
 }
 
 /* Slides Wrapper */
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  height: 100%; /* Ensure slides take full height */
+  height: 100%;
 }
 
 /* Individual Slide */
 .slide {
-  flex: 0 0 100%; /* Each slide takes full width */
+  flex: 0 0 100%;
   width: 100%;
   background: linear-gradient(45deg, #e74c3c, #c0392b);
   display: flex;
@@ -1008,80 +1010,78 @@ button[type="submit"] {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 50px;
-  height: 100%;
-  box-sizing: border-box; /* Include padding in height calculation */
+  padding: 30px 20px;
+  min-height: 300px; /* Ensure consistent height */
+  box-sizing: border-box;
 }
 
 /* Headings */
 .slide h2 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size */
   margin-bottom: 15px;
   color: black;
 }
 
 /* Paragraphs */
 .slide p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
   color: whitesmoke;
-  max-width: 80%;
+  max-width: 90%;
   line-height: 1.5;
+  margin: 0;
 }
 
-/* Responsive Design */
+/* Tablet View */
 @media (max-width: 768px) {
+  #mission {
+      min-height: 80vh;
+      padding: 15px;
+  }
+  
   .slider-container {
-      width: 90%;
-      height: 320px;
+      width: 95%;
   }
-
+  
   .slide {
-      padding: 40px;
-  }
-
-  .slide h2 {
-      font-size: 1.8rem;
-  }
-
-  .slide p {
-      font-size: 1rem;
-      max-width: 90%;
+      padding: 25px 15px;
+      min-height: 250px;
   }
 }
 
-@media (max-width: 500px) {
-  #mission h1 {
-      font-size:1.5rem; /* Adjust h1 font size for smaller screens */  }
-
-  .slide h2 {
-      font-size: 1.5rem;
-  }
-
-  .slide p {
-      font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 768px) {
+/* Mobile View */
+@media (max-width: 480px) {
   #mission {
-      height: 50vh; /* Adjust height for tablets */
-      padding: 20px 10px; /* Adjust padding for smaller screens */
+      min-height: 70vh;
+      padding: 10px;
   }
-
+  
   #mission h1 {
-      padding-top: 30px; /* Adjust padding for smaller screens */
-      font-size: 1.5rem; /* Adjust font size for smaller screens */
+      margin-bottom: 15px;
+      padding: 10px 0;
+  }
+  
+  .slider-container {
+      width: 100%;
+      border-radius: 10px;
+  }
+  
+  .slide {
+      padding: 20px 10px;
+      min-height: 200px;
+  }
+  
+  .slide p {
+      max-width: 95%;
   }
 }
 
-@media (max-width: 500px) {
-  #mission {
-      height: 40vh; /* Adjust height for mobile devices */
-      padding: 15px 5px; /* Adjust padding for smaller screens */
+/* Very small screens */
+@media (max-width: 360px) {
+  .slide {
+      min-height: 180px;
   }
-
-  #mission h1 {
-      padding-top: 20px; /* Adjust padding for smaller screens */
-      font-size: 1.5rem; /* Adjust font size for smaller screens */
+  
+  .slide p {
+      font-size: 0.9rem;
   }
 }
