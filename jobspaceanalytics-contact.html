@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Space Analytics - Staffing Solutions</title>
+  <link rel="stylesheet" href="jobspaceanalytics.css">
+</head>
+<style>
+#sheetform {
+    padding-top: 300px; /* Adjust based on header height */
+  }
+  
+  hr.animated-hr {
+    border: 0;
+    height: 4px;
+    margin: 2rem 0;
+    background: linear-gradient(90deg, #2c3e50, #3498db, #2c3e50);
+    background-size: 200% auto;
+    animation: hrFlow 3s linear infinite;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  @keyframes hrFlow {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  </style>
+<body>
+  <!-- Fixed Header Navigation -->
+  <header>
+    <div class="logo">
+        <img src="2-18-2025 JOB SPACE ANALYTICS.gif" alt="Job Space Analytics Logo" width="500" height="200">
+     
+    </div>
+    <nav>
+        <ul class="menu">
+            <li><a href="jobspaceanalytics.html">Home</a></li>
+            <li class="dropdown">
+                <a href="jobspaceanalyticsabout.html">About ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="jobspaceanalytics-mission.html">Our Mission</a></li>
+                    <li><a href="jobspaceanalytics-testimonial.html">Testimonials</a></li>
+                    <li><a href="jobspaceanalytics-corevalues.html">Core Values</a></li>
+                    <li><a href="jobspaceanalytics-faqs.html">FAQS</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="jobspaceanalyticsservices.html">Services ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="remote staffing.html">Remote Staffing</a></li>
+                    <li><a href="analytics.html">Analytics Focuses Area</a></li>
+                </ul>
+            </li>
+            <li><a href="jobspaceanalytics-contact.html">Contact-Us</a></li>
+           
+         
+        </ul>
+    </nav>
+</header>
+ <!-- Application Form Section -->
+
+ <section id="sheetform">
+    <hr class="animated-hr">  
+    <div class="container-form">
+        <h2>Workforce Without Limits – Remote Staffing Solutions for Modern Businesses.</h2>
+        <h1>Interested in working together?</h1>
+        <p>Fill out some info and we will be with you every step of the way! We can't wait to hear from you!</p>
+        
+        <div id="msg"></div>
+        
+        <form id="jobForm">
+            <input type="hidden" name="formType" value="jobApplication">
+            
+            <div class="input-group">
+                <input type="text" name="name" id="nameInput" placeholder=" " required>
+                <label for="nameInput">Full Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" name="email" id="emailInput" placeholder=" " required>
+                <label for="emailInput">Email Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="tel" name="phone" id="phoneInput" placeholder=" " required>
+                <label for="phoneInput">Phone Number</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" name="address" id="addressInput" placeholder=" " required>
+                <label for="addressInput">Mailing Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" name="services" id="servicesInput" placeholder=" " required>
+                <label for="servicesInput">Services Interested</label>
+            </div>
+
+            <div class="input-group">
+                <textarea name="message" id="messageInput" placeholder=" " rows="5" required></textarea>
+                <label for="messageInput">Your Message</label>
+            </div>
+
+            <button type="submit">Submit Application</button>
+            <img src="jobspaceanalytics qr_code.png" alt="Job Space Analytics Logo" class="qr-code1">
+        </form>
+    </div>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzsiNZiF9ziTrZaLPpu-R5zDt3jsKTKm6OD-rFdSuUgoks8iD-m3p4D5O-MSVaLwrvG/exec';
+    
+    document.getElementById('jobForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const msgDiv = document.getElementById('msg');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '<div class="spinner"></div> Sending...';
+    submitBtn.disabled = true;
+    msgDiv.classList.remove('success', 'error', 'show'); // Reset message state
+    
+    try {
+        const formData = new URLSearchParams(new FormData(form));
+        
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData
+        });
+    
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        
+        const result = await response.json();
+        
+        if (result.status === "success") {
+            form.reset();
+            msgDiv.textContent = '✅ Application Submitted Successfully!';
+            msgDiv.classList.add('success', 'show'); // Add 'show' class
+        } else {
+            throw new Error(result.message || 'Submission failed');
+        }
+    } catch (error) {
+        msgDiv.textContent = `❌ Error: ${error.message}`;
+        msgDiv.classList.add('error', 'show'); // Add 'show' class
+    } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        setTimeout(() => {
+            msgDiv.classList.remove('success', 'error', 'show'); // Hide message after 5 seconds
+            msgDiv.textContent = '';
+        }, 5000);
+    }
+});
+    </script>
+
+</section>
+</body>
+</html>

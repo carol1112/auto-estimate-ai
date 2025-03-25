@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Hiring Essentials</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a2a72;
+            --secondary: #009ffd;
+            --accent: #00c853;
+            --dark: #333;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .topic-card {
+            background: rgb(5, 240, 127);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .topic-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .topic-title {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+        }
+
+        .topic-list {
+            list-style: none;
+            padding: 0;
+            color: var(--dark);
+        }
+
+        .topic-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .topic-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="section-title">Remote Hiring</h1>
+        
+        <div class="topics-grid">
+            <!-- Topic 1 -->
+            <div class="topic-card">
+                <i class="topic-icon fas fa-search-globe">🌍</i>
+                <h3 class="topic-title">1. Global Talent Sourcing</h3>
+                <ul class="topic-list">
+                    <li>Access specialized skills worldwide</li>
+                    <li>Leverage time zone advantages</li>
+                    <li>Platforms: LinkedIn, RemoteOK, Toptal</li>
+                </ul>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="topic-card">
+                <i class="topic-icon fas fa-video"></i>
+                <h3 class="topic-title">2. Virtual Interviews</h3>
+                <ul class="topic-list">
+                    <li>Structured video assessments</li>
+                    <li>Asynchronous video tools (HireVue)</li>
+                    <li>Cultural fit evaluation techniques</li>
+                </ul>
+            </div>
+
+            <!-- Topic 3 -->
+            <div class="topic-card">
+                <i class="topic-icon fas fa-clipboard-check"></i>
+                <h3 class="topic-title">3. Remote Skills Assessment</h3>
+                <ul class="topic-list">
+                    <li>Technical tests (CoderPad, HackerRank)</li>
+                    <li>Soft skill evaluation frameworks</li>
+                    <li>Remote work readiness checks</li>
+                </ul>
+            </div>
+
+            <!-- Topic 4 -->
+            <div class="topic-card">
+                <i class="topic-icon fas fa-balance-scale"></i>
+                <h3 class="topic-title">4. Legal Compliance</h3>
+                <ul class="topic-list">
+                    <li>International labor laws</li>
+                    <li>Contract templates for remote work</li>
+                    <li>GDPR/data privacy compliance</li>
+                </ul>
+            </div>
+
+            <!-- Topic 5 -->
+            <div class="topic-card">
+                <i class="topic-icon fas fa-user-clock"></i>
+                <h3 class="topic-title">5. Onboarding & Retention</h3>
+                <ul class="topic-list">
+                    <li>Digital onboarding checklists</li>
+                    <li>Virtual mentorship programs</li>
+                    <li>Remote employee engagement tools</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href="jobspaceanalytics.html#home" class="btn">Back to Home</a>
+    <link rel="stylesheet" href="jobspaceanalytics.css">
+</body>
+</html>
