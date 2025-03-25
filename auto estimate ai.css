@@ -1051,8 +1051,7 @@ button[type="submit"] {
 
 @media (max-width: 500px) {
   #mission h1 {
-      font-size: 2rem; /* Adjust h1 font size for smaller screens */
-  }
+      font-size:1.5rem; /* Adjust h1 font size for smaller screens */  }
 
   .slide h2 {
       font-size: 1.5rem;
@@ -1065,24 +1064,24 @@ button[type="submit"] {
 
 @media (max-width: 768px) {
   #mission {
-      height: 60vh; /* Adjust height for tablets */
-      padding: 30px 15px; /* Adjust padding for smaller screens */
-  }
-
-  #mission h1 {
-      padding-top: 40px; /* Adjust padding for smaller screens */
-      font-size: 2rem; /* Adjust font size for smaller screens */
-  }
-}
-
-@media (max-width: 500px) {
-  #mission {
-      height: 50vh; /* Adjust height for mobile devices */
+      height: 50vh; /* Adjust height for tablets */
       padding: 20px 10px; /* Adjust padding for smaller screens */
   }
 
   #mission h1 {
       padding-top: 30px; /* Adjust padding for smaller screens */
-      font-size: 1.8rem; /* Adjust font size for smaller screens */
+      font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 500px) {
+  #mission {
+      height: 40vh; /* Adjust height for mobile devices */
+      padding: 15px 5px; /* Adjust padding for smaller screens */
+  }
+
+  #mission h1 {
+      padding-top: 20px; /* Adjust padding for smaller screens */
+      font-size: 1.5rem; /* Adjust font size for smaller screens */
   }
 }
