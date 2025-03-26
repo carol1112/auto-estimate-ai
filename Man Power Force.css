@@ -112,14 +112,33 @@ header {
     text-align: center;
   }
 
-    /*video */
-    #home{display: flex;
-      justify-content: center;  /* Horizontal */
-      align-items: center;      /* Vertical */
-      min-height: 1000px;        /* Ensure section has height */
-      background: #060606;
-      }
+    /* Video Section */
+  #home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full screen height */
+    background: #060606;
+    padding: 10px;
+    overflow: hidden; /* Prevent unwanted scrollbars */
+}
 
+/* Video Styling */
+#bg-video {
+    width: 100%;
+    max-width: 800px; /* Limit width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure video fills the container */
+    border-radius: 10px; /* Optional rounded corners */
+}
+
+/* Responsive Fix for Smaller Screens */
+@media (max-width: 400px) {
+    #bg-video {
+        width: 90%; /* Scale down for mobile */
+        max-width: 100%;
+    }
+}
 
     /* About Us Section */
  hr {
