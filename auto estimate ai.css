@@ -325,98 +325,31 @@ body {
       font-size: 0.9rem;
   }
 }
-/*video */
- /* Home Section - Fully Responsive */
- #home {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 40px 20px;
-  background-color: #f8f9fa;
-  box-sizing: border-box;
-  position: relative;
+
+  /* Video Section */
+  #home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full screen height */
+    background: #060606;
+    padding: 10px;
+    overflow: hidden; /* Prevent unwanted scrollbars */
 }
 
-#home video {
+#bg-video {
   width: 100%;
-  max-width: 1000px;
-  height: auto;
-  aspect-ratio: 16/9; /* Maintain video aspect ratio */
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  outline: none;
+  max-width: 800px; /* Limit width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure video fills the container */
+  border-radius: 10px; /* Optional rounded corners */
 }
 
-hr {
-  margin: 100px auto;
-  width: 80%;
-  max-width: 1000px;
-  border: 0;
-  height: 1px;
-  background-color: #e0e0e0;
-}
-
-/* Desktop Large Screens */
-@media (min-width: 1600px) {
-  #home video {
-    max-width: 1200px;
-  }
-}
-
-/* Tablet View */
-@media (max-width: 1024px) {
-  #home {
-    min-height: 80vh;
-    padding: 30px 15px;
-  }
-  
-  #home video {
-    max-width: 800px;
-  }
-}
-
-/* Mobile View - Portrait */
-@media (max-width: 768px) {
-  #home {
-    min-height: auto;
-    padding: 25px 10px;
-  }
-  
-  #home video {
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  hr {
-    width: 90%;
-    margin: 30px auto;
-  }
-}
-
-/* Small Mobile View */
-@media (max-width: 480px) {
-  #home {
-    padding: 20px 10px;
-  }
-  
-  #home video {
-    border-radius: 6px;
-  }
-
-  hr {
-    width: 95%;
-  }
-}
-
-/* Landscape Orientation */
-@media (orientation: landscape) and (max-height: 500px) {
-  #home {
-    min-height: 120vh;
-  }
-  
-  #home video {
-    max-width: 90vw;
+/* Responsive Fix for Smaller Screens */
+@media (max-width: 400px) {
+  #bg-video {
+      width: 90%; /* Scale down for mobile */
+      max-width: 100%;
   }
 }
   /* Benefits Section - Enhanced */
