@@ -34,16 +34,16 @@
     <br>
     <style>
     /* General Reset */
-    hr {
-        margin-bottom: 50px;
+    #sheet{
+        margin-bottom: 40px;
     }
     
      </style>
+
     </section>
-    <hr>
-    <br>
+
     <section id="sheetform">
-        
+
             <!-- Application Form Section -->
         <div class="container">
           <!-- Form Header -->
@@ -92,7 +92,7 @@
         </div>
     
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwCaJ-v6pLv9AuOw9SO-I8L5kvWETTSMte7vGQZtcjZCuED-VOBavaZtDmpNCXxUyfM/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzSVL8RN8NQIVzJcrDbX3ZNTJK-wD4ypLR0v5tectXpTYI4pJ6LN9P61L8f2NOBx1PO/exec';
         
         document.getElementById('jobForm').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -120,7 +120,7 @@
             
             if (result.status === "success") {
                 form.reset();
-                msgDiv.textContent = '✅ Application Submitted Successfully!';
+                msgDiv.textContent = '✅ Form Submitted Successfully!';
                 msgDiv.classList.add('success', 'show'); // Add 'show' class
             } else {
                 throw new Error(result.message || 'Submission failed');
