@@ -1,5 +1,9 @@
 /* Header Styles */
-
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 .header {
   position: fixed;
   top: 0;
@@ -14,19 +18,19 @@
   z-index: 1000;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
-
-/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
 .logo img {
   width: 180px;
   height: auto;
 }
-
-/* Navigation Styles */
 .nav {
   flex-grow: 1;
-  text-align: right;
+  display: flex;
+  justify-content: center;
 }
-
 .nav-list {
   list-style: none;
   display: flex;
@@ -34,12 +38,10 @@
   margin: 0;
   padding: 0;
 }
-
 .nav-item {
   position: relative;
   margin-left: 25px;
 }
-
 .nav-item a {
   color: #fff;
   text-decoration: none;
@@ -49,12 +51,9 @@
   font-weight: bold;
   transition: all 0.3s ease;
 }
-
 .nav-item a:hover {
   color: black;
 }
-
-/* Dropdown Menu */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -67,11 +66,9 @@
   min-width: 180px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 .dropdown-menu li {
   padding: 0;
 }
-
 .dropdown-menu a {
   padding: 10px 15px;
   display: block;
@@ -80,55 +77,53 @@
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
-
 .dropdown-menu a:hover {
   background-color: #fff;
   color: brown;
 }
-
-/* Show dropdown on hover */
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-
-/* Responsive Styles */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
 @media (max-width: 768px) {
   .header {
       flex-direction: column;
       align-items: center;
       padding: 10px;
   }
-
   .logo img {
       width: 140px;
   }
-
+  .menu-toggle {
+      display: block;
+  }
   .nav {
+      display: none;
       width: 100%;
       text-align: center;
   }
-
   .nav-list {
       flex-direction: column;
       width: 100%;
   }
-
   .nav-item {
       margin-left: 0;
       width: 100%;
   }
-
   .nav-item a {
       padding: 10px;
   }
-
   .dropdown-menu {
       position: static;
       display: none;
       width: 100%;
   }
-
-  .dropdown:hover .dropdown-menu {
+  .nav.active {
       display: block;
   }
 }
