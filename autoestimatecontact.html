@@ -11,10 +11,10 @@
         <div class="logo">
             <img src="AUTO ESTIMATE AI LOGO1.gif" alt="LOGO">
         </div>
+        <div class="menu-toggle">☰</div>
         <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a href="auto estimate ai.html">Home</a></li>
-                
                 <li class="nav-item dropdown">
                     <a href="autoestimateabout-us.html">About Us ▾</a>
                     <ul class="dropdown-menu">
@@ -23,19 +23,27 @@
                         <li><a href="autoestimatebenefits.html">Key Benefits</a></li>
                     </ul>
                 </li>
-    
                 <li class="nav-item"><a href="autoestimateservice.html">Service</a></li>
                 <li class="nav-item"><a href="autoestimatefaqs.html">FAQS</a></li>
                 <li class="nav-item"><a href="autoestimatecontact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".nav");
+        menuToggle.addEventListener("click", function() {
+            nav.classList.toggle("active");
+        });
+    });
+</script>
     <hr>
     <br>
     <style>
     /* General Reset */
     #sheet{
-        margin-bottom: 40px;
+        margin-bottom: 150px;
     }
     
      </style>
