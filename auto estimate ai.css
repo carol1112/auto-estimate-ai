@@ -114,9 +114,9 @@ body {
 @media (max-width: 1024px) { /* Laptops and tablets */
   .header {
     height: 100px; /* Reduce header height */
-    padding: 5px 15px;
+    padding: 5px 15px;}
   
-    margin-top: 50px; /* Reduce space */
+    #home {margin-top: 50px; /* Reduce space */
   }
   .logo img {
     width: 120px; /* Smaller logo */
@@ -139,7 +139,9 @@ body {
   .logo img {
     width: 110px; /* Smaller logo */
   }
-
+  #home {
+    margin-top: 60px; /* Reduce margin further */
+  }
   .menu-toggle {
     display: block;
   }
@@ -182,6 +184,9 @@ body {
 
   .logo img {
     width: 90px; /* Smaller logo */
+  }
+  #home {
+    margin-top: 50px; /* Reduce spacing */
   }
 }
 
