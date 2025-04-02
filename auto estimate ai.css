@@ -70,7 +70,7 @@ body {
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 35px; /* Adjusted for smaller header */
+  top: 40px; /* Adjusted for smaller header */
   left: 0;
   background-color: brown;
   border-radius: 5px;
@@ -113,10 +113,10 @@ body {
 /* Responsive Adjustments */
 @media (max-width: 1024px) { /* Laptops and tablets */
   .header {
-    height: 100px; /* Reduce header height */
+    height: 120px; /* Reduce header height */
     padding: 5px 15px;}
   
-    #home {margin-top: 30px; /* Reduce space */
+    #home {margin-top: 20px; /* Reduce space */
   }
   .logo img {
     width: 120px; /* Smaller logo */
@@ -140,7 +140,7 @@ body {
     width: 110px; /* Smaller logo */
   }
   #home {
-    margin-top: 40px; /* Reduce margin further */
+    margin-top: 30px; /* Reduce margin further */
   }
   .menu-toggle {
     display: block;
@@ -179,14 +179,14 @@ body {
 
 @media (max-width: 480px) { /* Mobile Phones */
   .header {
-    height: 300px;
+    height: 400px;
   }
 
   .logo img {
     width: 90px; /* Smaller logo */
   }
   #home {
-    margin-top: 30px; /* Reduce spacing */
+    margin-top: 20px; /* Reduce spacing */
   }
 }
 
@@ -202,11 +202,7 @@ body {
   .nav-item a {
     font-size: 12px; /* Adjust font size */
   }
-  #home {
-    margin-top: 30px; /* Reduce spacing */
-  }
 }
-
 /* Basic Reset */
 * {
     margin: 0;
