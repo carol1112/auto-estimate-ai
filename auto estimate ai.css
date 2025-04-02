@@ -176,7 +176,7 @@ body {
 
 @media (max-width: 480px) { /* Mobile Phones */
   .header {
-    height: 120px;
+    height: 200px;
   }
 
   .logo img {
@@ -186,7 +186,7 @@ body {
 
 @media (max-width: 360px) { /* Very Small Screens */
   .header {
-    height: 100px;
+    height: 200px;
   }
 
   .logo img {
