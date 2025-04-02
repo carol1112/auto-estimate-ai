@@ -116,7 +116,7 @@ body {
     height: 100px; /* Reduce header height */
     padding: 5px 15px;}
   
-    #home {margin-top: 50px; /* Reduce space */
+    #home {margin-top: 30px; /* Reduce space */
   }
   .logo img {
     width: 120px; /* Smaller logo */
@@ -140,7 +140,7 @@ body {
     width: 110px; /* Smaller logo */
   }
   #home {
-    margin-top: 60px; /* Reduce margin further */
+    margin-top: 40px; /* Reduce margin further */
   }
   .menu-toggle {
     display: block;
@@ -179,14 +179,14 @@ body {
 
 @media (max-width: 480px) { /* Mobile Phones */
   .header {
-    height: 200px;
+    height: 300px;
   }
 
   .logo img {
     width: 90px; /* Smaller logo */
   }
   #home {
-    margin-top: 50px; /* Reduce spacing */
+    margin-top: 30px; /* Reduce spacing */
   }
 }
 
@@ -202,7 +202,11 @@ body {
   .nav-item a {
     font-size: 12px; /* Adjust font size */
   }
+  #home {
+    margin-top: 30px; /* Reduce spacing */
+  }
 }
+
 /* Basic Reset */
 * {
     margin: 0;
