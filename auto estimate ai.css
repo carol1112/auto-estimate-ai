@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .header {
   position: fixed;
   top: 0;
@@ -18,19 +19,24 @@ body {
   z-index: 1000;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .logo {
   display: flex;
   align-items: center;
 }
+
 .logo img {
   width: 180px;
   height: auto;
 }
+
+/* Navigation Styling */
 .nav {
   flex-grow: 1;
   display: flex;
   justify-content: center;
 }
+
 .nav-list {
   list-style: none;
   display: flex;
@@ -38,10 +44,12 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .nav-item {
   position: relative;
   margin-left: 25px;
 }
+
 .nav-item a {
   color: #fff;
   text-decoration: none;
@@ -51,9 +59,11 @@ body {
   font-weight: bold;
   transition: all 0.3s ease;
 }
+
 .nav-item a:hover {
   color: black;
 }
+
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -66,9 +76,11 @@ body {
   min-width: 180px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .dropdown-menu li {
   padding: 0;
 }
+
 .dropdown-menu a {
   padding: 10px 15px;
   display: block;
@@ -77,57 +89,92 @@ body {
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
+
 .dropdown-menu a:hover {
   background-color: #fff;
   color: brown;
 }
+
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
+/* Menu Toggle for Mobile */
 .menu-toggle {
   display: none;
   font-size: 24px;
   cursor: pointer;
   color: white;
 }
-@media (max-width: 768px) {
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) { /* Tablet and small laptops */
+  .logo img {
+    width: 160px; /* Smaller logo for tablet */
+  }
+}
+
+@media (max-width: 768px) { /* Tablets and mobile devices */
   .header {
       flex-direction: column;
       align-items: center;
       padding: 10px;
   }
+
   .logo img {
-      width: 140px;
+      width: 140px;  /* Adjust logo size for mobile */
+      height: auto;
   }
+
   .menu-toggle {
       display: block;
   }
+
   .nav {
       display: none;
       width: 100%;
       text-align: center;
   }
+
   .nav-list {
       flex-direction: column;
       width: 100%;
   }
+
   .nav-item {
       margin-left: 0;
       width: 100%;
   }
+
   .nav-item a {
       padding: 10px;
   }
+
   .dropdown-menu {
       position: static;
       display: none;
       width: 100%;
   }
+
   .nav.active {
       display: block;
   }
 }
-* Basic Reset */
+
+@media (max-width: 480px) { /* Mobile phones */
+  .logo img {
+    width: 120px;  /* Smaller logo for smaller screens */
+    height: auto;
+  }
+}
+
+@media (max-width: 360px) { /* Very small screens */
+  .logo img {
+    width: 100px;  /* Adjust logo further for tiny screens */
+    height: auto;
+  }
+}
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -322,30 +369,79 @@ body {
   }
 }
 
-  /* Video Section */
-  #home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full screen height */
-    background: #060606;
-    padding: 10px;
-    overflow: hidden; /* Prevent unwanted scrollbars */
+ /* Video Section */
+ #home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: white;
+  padding: 10px;
+  overflow: hidden;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
 }
 
+/* Video Styling */
 #bg-video {
-  width: 100%;
-  max-width: 800px; /* Limit width */
-  height: auto; /* Maintain aspect ratio */
-  object-fit: cover; /* Ensure video fills the container */
-  border-radius: 10px; /* Optional rounded corners */
+  width: 60%;            /* Reduce size but keep aspect ratio */
+  height: auto;          /* Maintain aspect ratio */
+  max-width: 800px;      /* Set max width to avoid large scaling */
+  max-height: 500px;     /* Set max height to avoid excessive height */
+  object-fit: contain;   /* Keep full video visible without cropping */
+  border-radius: 10px;   /* Optional rounded corners */
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}  
+
+/* Responsive Adjustments for Laptops (1366px screens) */
+@media (min-width: 1024px) and (max-width: 1366px) { 
+  #bg-video {
+    width: 50%;         /* Reduce size more for laptops */
+    max-width: 700px;   /* Limit max width */
+    max-height: 400px;  /* Keep proportional height */
+  }
 }
 
-/* Responsive Fix for Smaller Screens */
-@media (max-width: 400px) {
+/* Tablets */
+@media (max-width: 768px) { 
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo img {
+    height: 100px;
+  }
+
   #bg-video {
-      width: 90%; /* Scale down for mobile */
-      max-width: 100%;
+    width: 70%;
+    max-width: 600px;
+    max-height: 350px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) { 
+  .logo img {
+    height: 80px;
+  }
+
+  #bg-video {
+    width: 90%;
+    max-width: 400px;
+    max-height: 350px;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 400px) { 
+  #bg-video {
+    width: 95%;
+    max-width: 350px;
+    max-height: 200px;
   }
 }
 /*mission*/
