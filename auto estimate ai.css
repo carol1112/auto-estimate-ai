@@ -15,7 +15,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
+  padding: 5px 20px;  /* Decreased padding to reduce height */
+  height: 160px;       /* Reduced overall header height */
+  
   z-index: 1000;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -26,7 +28,7 @@ body {
 }
 
 .logo img {
-  width: 180px;
+  width: 180px; /* Smaller default logo size */
   height: auto;
 }
 
@@ -47,15 +49,15 @@ body {
 
 .nav-item {
   position: relative;
-  margin-left: 25px;
+  margin-left: 20px;
 }
 
 .nav-item a {
   color: #fff;
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 8px 12px; /* Reduced padding for smaller nav height */
   display: block;
-  font-size: 16px;
+  font-size: 18px;   /* Smaller font size for better fit */
   font-weight: bold;
   transition: all 0.3s ease;
 }
@@ -64,16 +66,17 @@ body {
   color: black;
 }
 
+/* Dropdown Menu */
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 40px;
+  top: 35px; /* Adjusted for smaller header */
   left: 0;
   background-color: brown;
   border-radius: 5px;
   list-style: none;
   padding: 5px 0;
-  min-width: 180px;
+  min-width: 160px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -82,10 +85,10 @@ body {
 }
 
 .dropdown-menu a {
-  padding: 10px 15px;
+  padding: 8px 12px;
   display: block;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
@@ -102,76 +105,96 @@ body {
 /* Menu Toggle for Mobile */
 .menu-toggle {
   display: none;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   color: white;
 }
 
-/* Media Queries for Responsive Design */
-@media (max-width: 1024px) { /* Tablet and small laptops */
-  .logo img {
-    width: 160px; /* Smaller logo for tablet */
-  }
-}
-
-@media (max-width: 768px) { /* Tablets and mobile devices */
+/* Responsive Adjustments */
+@media (max-width: 1024px) { /* Laptops and tablets */
   .header {
-      flex-direction: column;
-      align-items: center;
-      padding: 10px;
+    height: 70px; /* Reduce header height */
+    padding: 5px 15px;
   }
 
   .logo img {
-      width: 140px;  /* Adjust logo size for mobile */
-      height: auto;
-  }
-
-  .menu-toggle {
-      display: block;
-  }
-
-  .nav {
-      display: none;
-      width: 100%;
-      text-align: center;
-  }
-
-  .nav-list {
-      flex-direction: column;
-      width: 100%;
-  }
-
-  .nav-item {
-      margin-left: 0;
-      width: 100%;
+    width: 120px; /* Smaller logo */
   }
 
   .nav-item a {
-      padding: 10px;
+    font-size: 13px; /* Adjust font size */
+    padding: 6px 10px; /* Adjust padding */
+  }
+}
+
+@media (max-width: 768px) { /* Tablets and small screens */
+  .header {
+    flex-direction: column;
+    align-items: center;
+    height: auto; /* Allow flexible height */
+    padding: 5px;
+  }
+
+  .logo img {
+    width: 110px; /* Smaller logo */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-item {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .nav-item a {
+    padding: 8px;
   }
 
   .dropdown-menu {
-      position: static;
-      display: none;
-      width: 100%;
+    position: static;
+    display: none;
+    width: 100%;
   }
 
   .nav.active {
-      display: block;
+    display: block;
   }
 }
 
-@media (max-width: 480px) { /* Mobile phones */
+@media (max-width: 480px) { /* Mobile Phones */
+  .header {
+    height: 50px;
+  }
+
   .logo img {
-    width: 120px;  /* Smaller logo for smaller screens */
-    height: auto;
+    width: 90px; /* Smaller logo */
   }
 }
 
-@media (max-width: 360px) { /* Very small screens */
+@media (max-width: 360px) { /* Very Small Screens */
+  .header {
+    height: 45px;
+  }
+
   .logo img {
-    width: 100px;  /* Adjust logo further for tiny screens */
-    height: auto;
+    width: 80px; /* Even smaller logo */
+  }
+
+  .nav-item a {
+    font-size: 12px; /* Adjust font size */
   }
 }
 /* Basic Reset */
