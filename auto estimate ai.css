@@ -113,7 +113,7 @@ body {
 /* Responsive Adjustments */
 @media (max-width: 1024px) { /* Laptops and tablets */
   .header {
-    height: 70px; /* Reduce header height */
+    height: 100px; /* Reduce header height */
     padding: 5px 15px;
   }
 
@@ -176,7 +176,7 @@ body {
 
 @media (max-width: 480px) { /* Mobile Phones */
   .header {
-    height: 50px;
+    height: 100px;
   }
 
   .logo img {
