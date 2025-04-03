@@ -114,7 +114,7 @@ body {
 /* Responsive Adjustments */
 @media (max-width: 1024px) { /* Laptops and tablets */
   .header {
-      height: 110px; /* Increased height */
+      height: 130px; /* Increased height */
       padding: 10px 15px;
   }
 
@@ -151,6 +151,7 @@ body {
       text-align: center;
       font-size: 24px;
       margin-top: 10px;
+      color:#060606;
   }
 
   .nav {
