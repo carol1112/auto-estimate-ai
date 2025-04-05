@@ -1,270 +1,220 @@
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
+/* Reset and Base Styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Header Styles */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: brown;
-  color: #fff;
+body {
+  background-color: #f4f4f4;
+  
+}
+
+/* Header */
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  height: 150px; /* Increased height for better logo fit */
+  background: rgb(228, 67, 67);
+  padding: 8px 15px; /* Reduced padding */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1000;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  height: 150px; /* Decreased height */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-}
-
 .logo img {
-  width: 160px; /* Increased logo size */
-  height: auto;
+  width: 200px;  /* Smaller logo */
+  height: 150px;
 }
 
-/* Navigation Styling */
-.nav {
-  flex-grow: 1;
+/* Menu */
+.menu {
+  list-style: none;
   display: flex;
   justify-content: center;
-}
-
-.nav-list {
-  list-style: none;
-  display: flex;
   align-items: center;
-  margin: 0;
-  padding: 0;
+  gap: 15px; /* Adjusted gap */
 }
 
-.nav-item {
+.menu li {
   position: relative;
-  margin-left: 20px;
 }
 
-.nav-item a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 15px;
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.3s ease;
+.menu li a {
+  text-decoration:none; 
+  color: white;
+  font-size: 18px; /* Slightly smaller text */
+  padding: 6px 10px; /* Adjusted padding */
+  transition: 0.3s;
 }
 
-.nav-item a:hover {
-  color: black;
-}
-
-/* Dropdown Menu */
+/* Dropdown */
 .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 50px; /* Adjusted for larger header */
-  left: 0;
-  background-color: brown;
-  border-radius: 5px;
   list-style: none;
-  padding: 5px 0;
-  min-width: 160px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.dropdown-menu li {
-  padding: 0;
-}
-
-.dropdown-menu a {
-  padding: 8px 12px;
-  display: block;
-  color: #fff;
-  font-size: 14px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-menu a:hover {
-  background-color: #fff;
-  color: brown;
+  top: 100%;
+  left: 0;
+  background: red;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: none;
+  min-width: 150px; /* Adjusted width */
+  position: absolute;
+  text-align: center;
+  padding: 10px 15px;
+  gap: 15px
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
 }
 
-/* Mobile Menu Toggle */
+.menu li a:hover, .dropdown-menu li a:hover {
+  color: black;
+  border-radius: 5px;
+  text-decoration:underline; 
+}
+
+/* Toggle Menu */
 .menu-toggle {
   display: none;
   font-size: 24px;
+  color: white;
   cursor: pointer;
-  color: black;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1024px) { /* Laptops and tablets */
-  .header {
-      height: 130px; /* Increased height */
-      padding: 10px 15px;
+/* Responsive Design */
+@media (max-width: 1024px) { /* Laptops */
+  header {
+      height: 100px; /* Reduced header height more */
+      padding: 6px 12px;
   }
 
   .logo img {
-      width: 140px;
+      width: 75px; /* Further reduced logo size */
+      height:60px;
   }
 
-  .nav-item a {
-      font-size: 14px;
-      padding: 8px 12px;
+  .menu li a {
+      font-size: 13px; /* Adjusted font size */
+      padding: 5px 8px;
   }
 }
 
-@media (max-width: 768px) { /* Tablets */
-  .header {
-      flex-direction: column;
+@media (max-width: 768px) { /* Tablets and small screens */
+  header {
+      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
-      height: auto;
-      padding: 15px;
-  }
-
-  .logo {
-      width: 100%;
-      display: flex;
-      justify-content: center;
+      height: 55px; /* Smaller header for tablets */
+      padding: 6px 10px;
   }
 
   .logo img {
-      width: 130px; /* Adjusted size */
+      width: 70px; /* Smaller logo */
   }
 
   .menu-toggle {
       display: block;
-      text-align: center;
-      font-size: 24px;
-      margin-top: 10px;
-      color:#060606;
   }
 
-  .nav {
+  .menu {
       display: none;
-      width: 100%;
-      text-align: center;
-  }
-
-  .nav-list {
       flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: red;
+      text-align: center;
+      padding: 10px 0;
+  }
+
+  .menu.active {
+      display: flex;
+  }
+
+  /* Dropdown for Mobile */
+  .dropdown-menu {
+      position: static;
       width: 100%;
   }
 
-  .nav-item {
-      margin-left: 0;
-      width: 100%;
-  }
-
-  .nav-item a {
+  .dropdown-menu li a {
       padding: 10px;
+      background-color: purple;
+      color:black;
+  }
+
+  .dropdown:hover .dropdown-menu {
+      display: block;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 480px) {
+  header {
+      height: 200px; /* Reduced header for mobile */
+  }
+
+  .logo img {
+      width: 150px; /* Smaller logo */
+      height:80px;
+  }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 769px) {
+  .menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+  }
+
+  .menu-toggle {
+      display: none;
   }
 
   .dropdown-menu {
-      position: static;
       display: none;
-      width: 100%;
   }
 
-  .nav.active {
+  .dropdown:hover .dropdown-menu {
       display: block;
   }
 }
-
-@media (max-width: 480px) { /* Mobile Phones */
-  .header {
-      height: 140px; /* Increased height */
-      padding: 15px 10px;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .logo {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-  }
-
-  .logo img {
-      width: 110px;
-  }
-
-  .menu-toggle {
-      display: block;
-      text-align: center;
-      font-size: 24px;
-      margin-top: 10px;
-  }
-
-  .nav {
-      display: none;
-      width: 100%;
-      text-align: center;
-  }
-
-  .nav-list {
-      flex-direction: column;
-      width: 100%;
-  }
-
-  .nav.active {
-      display: block;
-  }
-}
-
-@media (max-width: 360px) { /* Very Small Screens */
-  .header {
-      height: 160px; /* Increased for very small screens */
-  }
-
-  .logo img {
-      width: 100px;
-  }
-
-  .nav-item a {
-      font-size: 12px;
-  }
-}
-/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color:blueviolet;
-    padding-top: 100px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: blueviolet;
+  padding-top: 0;  /* Reduced padding from 250px */
+  margin-top: 0;   /* Ensure no top margin */
 }
 
 /* About Us Section */
 .about-image3 img {
-  
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */}
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
+}
+
 /* About Section - Enhanced */
 .about {
-  padding: 60px 20px;
-  background-color:  #fff;
+  padding: 80px 40px; /* Generous spacing for desktop */
+  background-color: #fff;
   position: relative;
   z-index: 1;
+  min-height: 100vh;
+  margin-top: 0; /* Ensure no extra top margin */
 }
 
 .about-container {
@@ -339,7 +289,8 @@ body {
 
 .about-image3 {
   flex: 1;
-  min-width: 300px;
+  min-width: 500px;
+  min-height: 500px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -360,170 +311,197 @@ body {
 /* Tablet View */
 @media (max-width: 900px) {
   .about {
-      padding: 50px 15px;
+    padding: 50px 15px;
   }
-  
+
   .about-content {
-      gap: 30px;
+    gap: 30px;
   }
-  
+
   .tagline {
-      margin-bottom: 40px;
+    margin-bottom: 40px;
   }
-  
+
   .features1 {
-      margin: 25px 0;
+    margin: 25px 0;
   }
 }
 
 /* Mobile View */
 @media (max-width: 600px) {
   .about {
-      padding: 40px 15px;
+    padding: 40px 15px;
   }
-  
+
   .about h2 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
   }
-  
+
   .tagline {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
   }
-  
+
   .about-content {
-      flex-direction: column;
-      gap: 25px;
+    flex-direction: column;
+    gap: 25px;
   }
-  
+
   .about-text {
-      min-width: 100%;
+    min-width: 100%;
   }
-  
+
   .about-text p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
-  
+
   .features1 li {
-      font-size: 0.95rem;
-      padding-left: 25px;
+    font-size: 0.95rem;
+    padding-left: 25px;
   }
-  
+
   .about-image3 {
-      min-width: 100%;
-      order: -1; /* Image first on mobile */
+    min-width: 100%;
+    order: -1; /* Image first on mobile */
   }
 }
 
 /* Small Mobile View */
 @media (max-width: 400px) {
   .about {
-      padding: 30px 10px;
+    padding: 30px 10px;
   }
-  
+
   .about h2 {
-      font-size: 1.6rem;
+    font-size: 1.6rem;
   }
-  
+
   .tagline {
-      font-size: 1rem;
-      margin-bottom: 25px;
+    font-size: 1rem;
+    margin-bottom: 25px;
   }
-  
+
   .features1 li {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 }
 
- /* Video Section */
- #home {
+@media (min-width: 1024px) and (max-width: 1366px) {
+  body {
+    margin-top: 0; /* Ensure no margin from the top */
+  }
+
+  .about {
+    padding: 10px 10px; /* Adjusted padding */
+    min-height: 70vh;
+    margin-top: 0; /* Removed negative margin */
+    margin-top: 0; /* Ensure no extra top margin */
+  }
+
+  .about-container {
+    padding: 0 20px;
+  }
+
+  .tagline {
+    margin-bottom: 20px;
+  }
+
+  .about-content {
+    gap: 10px; /* Reduced gap between content */
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .features1 {
+    margin: 10px 0;
+  }
+
+  .about-image3 {
+    min-width: 300px;
+    min-height: auto;
+  }
+}
+/* Home Section Styling */
+#home {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  justify-content: center; /* Centers the video horizontally */
+  align-items: center;     /* Centers the video vertically */
+  min-height: 100vh;       /* Full screen height */
   background: white;
   padding: 10px;
-  overflow: hidden;
-  margin-top: 60px;
+  overflow: hidden;        /* Prevent unwanted scrollbars */
   position: relative;
-  z-index: 1;
 }
 
 /* Video Styling */
 #bg-video {
-  width: 60%;            /* Reduce size but keep aspect ratio */
-  height: auto;          /* Maintain aspect ratio */
-  max-width: 800px;      /* Set max width to avoid large scaling */
-  max-height: 500px;     /* Set max height to avoid excessive height */
-  object-fit: contain;   /* Keep full video visible without cropping */
-  border-radius: 10px;   /* Optional rounded corners */
-  margin: 0 auto;
+  width: 80%;              /* Reduced width for laptops */
+  height: auto;            /* Maintain aspect ratio */
+  max-width: 900px;        /* Limit width on larger screens */
+  max-height: 500px;       /* Adjust height to prevent overflow */
+  object-fit: cover;       /* Ensure video fills the container */
+  border-radius: 10px;     /* Optional rounded corners */
+  margin: 0 auto;          /* Centers the video within the container */
   position: relative;
-  z-index: 1;
-}  
+}
 
-/* Responsive Adjustments for Laptops (1366px screens) */
-@media (min-width: 1024px) and (max-width: 1366px) { 
+@media (max-width: 1440px) {  /* Larger laptops */
   #bg-video {
-    width: 50%;         /* Reduce size more for laptops */
-    max-width: 700px;   /* Limit max width */
-    max-height: 400px;  /* Keep proportional height */
+      width: 100%;  /* Ensure the video takes the full width of the container */
+      height: auto;  /* Maintain the aspect ratio */
+      max-height: 500px;  /* Limit the maximum height */
+      object-fit: cover;  /* Ensure the video covers the container while maintaining aspect ratio */
+  }
+  
+  #home {
+    height: 100vh;  /* Set home section height to viewport height */
   }
 }
 
-/* Tablets */
-@media (max-width: 768px) { 
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .logo img {
-    height: 100px;
-  }
-
+@media (max-width: 1024px) {  /* Standard laptops & tablets */
   #bg-video {
-    width: 70%;
-    max-width: 600px;
-    max-height: 350px;
+      width: 70%;  /* Reduce width */
+      max-height: 500px;
   }
 }
 
-/* Mobile */
-@media (max-width: 480px) { 
-  .logo img {
-    height: 80px;
-  }
-
+@media (max-width: 768px) {   /* Small tablets & larger smartphones */
   #bg-video {
-    width: 90%;
-    max-width: 400px;
-    max-height: 350px;
+      width: 90%;
+      max-height: 350px;
   }
 }
 
-/* Very Small Screens */
-@media (max-width: 400px) { 
+@media (max-width: 480px) {   /* Mobile phones */
   #bg-video {
-    width: 95%;
-    max-width: 350px;
-    max-height: 200px;
+      width: 95%;
+      max-height: 300px;
+  }
+}
+
+@media (max-width: 400px) {   /* Very small screens */
+  #bg-video {
+      width: 100%;
+      max-height: 250px;
   }
 }
 /*mission*/
-/* Mission Section - Enhanced for Mobile */
 #mission {
   font-family: Arial, sans-serif;
-  min-height: 100vh;
-  background-color:  #fff;
+  min-height: 80vh;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 5px;
+  padding-top: 10px; /* Reduced padding between header and section */
+ 
   box-sizing: border-box;
-  overflow: hidden; /* Prevent any overflow issues */
+  overflow: hidden;
 }
 
 #mission h1 {
@@ -532,7 +510,7 @@ body {
   text-align: center;
   width: 100%;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  padding: 20px 10px; /* Added horizontal padding */
+  padding: 10px 10px;
 }
 
 /* Slider Container - Enhanced */
@@ -541,14 +519,14 @@ body {
   max-width: 900px;
   height: auto;
   min-height: 300px;
-  max-height: 80vh; /* Prevent excessive height on large screens */
+  max-height: 80vh;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   margin: 0 auto;
   display: flex;
-  align-items: center; /* Better vertical alignment */
+  align-items: center;
 }
 
 /* Slides Wrapper - Enhanced */
@@ -557,7 +535,7 @@ body {
   transition: transform 0.5s ease-in-out;
   height: 100%;
   width: 100%;
-  align-items: stretch; /* Ensure slides take full height */
+  align-items: stretch;
 }
 
 /* Individual Slide - Enhanced */
@@ -570,30 +548,30 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 40px 20px; /* Increased vertical padding */
+  padding: 40px 20px;
   min-height: 300px;
   box-sizing: border-box;
   position: relative;
-  overflow: hidden; /* Prevent text overflow */
+  overflow: hidden;
 }
 
 /* Headings - Enhanced */
 .slide h2 {
-  font-size: clamp(1.5rem, 5vw, 2rem); /* Slightly larger on mobile */
+  font-size: clamp(1.5rem, 5vw, 2rem);
   margin-bottom: 15px;
   color: black;
   width: 90%;
-  line-height: 1.3; /* Better line spacing */
+  line-height: 1.3;
 }
 
 /* Paragraphs - Enhanced */
 .slide p {
-  font-size: clamp(1rem, 3.5vw, 1.2rem); /* Slightly larger on mobile */
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
   color: whitesmoke;
-  max-width: 85%; /* Slightly narrower for better readability */
-  line-height: 1.6; /* Increased line height */
-  margin: 0 auto; /* Center the paragraph */
-  padding: 0 5px; /* Small padding to prevent edge touching */
+  max-width: 85%;
+  line-height: 1.6;
+  margin: 0 auto;
+  padding: 0 5px;
 }
 
 /* Tablet View - Enhanced */
@@ -601,25 +579,25 @@ body {
   #mission {
     min-height: 80vh;
     padding: 15px;
-    justify-content: flex-start; /* Better spacing on tablets */
-    padding-top: 40px;
+    padding-top: 5px;
+    justify-content: flex-start;
   }
-  
+
   .slider-container {
     width: 95%;
     min-height: 250px;
     max-height: 60vh;
   }
-  
+
   .slide {
     padding: 30px 15px;
     min-height: 250px;
   }
-  
+
   .slide h2 {
     margin-bottom: 10px;
   }
-  
+
   .slide p {
     max-width: 90%;
   }
@@ -630,33 +608,33 @@ body {
   #mission {
     min-height: 70vh;
     padding: 10px;
-    padding-top: 30px;
+    padding-top: 15px;
   }
-  
+
   #mission h1 {
     margin-bottom: 15px;
     padding: 10px 5px;
-    font-size: clamp(1.3rem, 6vw, 1.8rem); /* Larger minimum size */
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
   }
-  
+
   .slider-container {
     width: 100%;
     border-radius: 10px;
     min-height: 200px;
     max-height: 50vh;
   }
-  
+
   .slide {
     padding: 25px 10px;
     min-height: 200px;
-    justify-content: center; /* Ensure content stays centered */
+    justify-content: center;
   }
-  
+
   .slide h2 {
     font-size: clamp(1.3rem, 6vw, 1.8rem);
     width: 95%;
   }
-  
+
   .slide p {
     max-width: 95%;
     font-size: clamp(0.95rem, 4vw, 1.1rem);
@@ -668,18 +646,19 @@ body {
 @media (max-width: 360px) {
   #mission {
     min-height: 65vh;
+    padding-top: 10px;
   }
-  
+
   .slide {
     min-height: 180px;
     padding: 20px 8px;
   }
-  
+
   .slide h2 {
     font-size: clamp(1.2rem, 5.5vw, 1.6rem);
     margin-bottom: 8px;
   }
-  
+
   .slide p {
     font-size: clamp(0.9rem, 3.8vw, 1rem);
     line-height: 1.4;
@@ -689,27 +668,28 @@ body {
 /* Landscape orientation fixes */
 @media (max-height: 500px) and (orientation: landscape) {
   #mission {
-    min-height: 120vh; /* Extra space for landscape */
+    min-height: 120vh;
     padding-top: 20px;
   }
-  
+
   .slider-container {
     max-height: 70vh;
     min-height: 200px;
   }
-  
+
   .slide {
     padding: 15px 10px;
     min-height: 180px;
   }
 }
 
+
   /* Benefits Section - Enhanced */
   #benefits {
       width: 100%;
       background-color: #fff;
       text-align: center;
-      padding: 80px 20px;
+      padding: 60px 20px;
   }
 
   .container-benefits {
@@ -1131,9 +1111,7 @@ body {
     }
 }
  /*contact section style*/
- hr {
-  margin-bottom: 50px;
-}
+
 #sheetform {
 display: flex;
 justify-content: center;
@@ -1141,7 +1119,7 @@ align-items: center;
 min-height: 100vh;
 background: white;
 
-padding: 50px 10px;
+padding: 80px 10px;
 }
 
 /* Main Container Styles */
@@ -1155,7 +1133,7 @@ background: linear-gradient(#212121, #212121) padding-box,
             linear-gradient(145deg, transparent 35%,hwb(127 10% 0%), hsl(141, 100%, 63%)) border-box;
             border-box;
 border: 7px solid transparent;
-padding: 30px 20px;
+padding: 50px 20px;
 font-family: 'Segoe UI', system-ui, sans-serif;
 color: white;
 display: flex;
