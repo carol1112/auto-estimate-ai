@@ -141,86 +141,31 @@ header {
 
   /* Dropdown for Mobile */
   .dropdown-menu {
-      position: static;
-      width: 100%;
-  }
-
-  .dropdown-menu li a {
-      padding: 10px;
-      background-color: purple;
-      color:black;
-  }
-
-  .dropdown:hover .dropdown-menu {
-      display: block;
-  }
+    position: static;
+    width: 100%;
 }
 
+.dropdown-menu li a {
+    padding: 10px;
+    background-color: purple;
+    color: white;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+}
+
+/* Mobile Screens */
 @media (max-width: 480px) {
-  header {
-      height: auto; /* Adjust header height based on content */
-      padding: 10px; /* Add padding to ensure space around the logo and toggle menu */
-      display: flex;
-      justify-content: space-between;
-      align-items: center; /* Vertically center the items */
-  }
-
-  .logo img {
-      width: 150px; /* Smaller logo */
-      height: auto; /* Ensure logo maintains aspect ratio */
-  }
-
-  /* Hamburger Menu */
-  .menu-toggle {
-      display: block;
-      background-color: #333;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 100;
-  }
-
-  .menu-toggle span {
-      display: block;
-      width: 25px;
-      height: 3px;
-      margin: 5px auto;
-      background-color: #fff;
-  }
-
-  /* Initially hide the menu */
-  .nav-menu {
-      display: none;
-      width: 100%;
-      text-align: center;
-  }
-
-  /* Active menu (toggle state) */
-  .nav-menu.active {
-      display: block;
-      background-color: #333;
-      position: absolute;
-      top: 100px; /* Ensure the menu appears below the header */
-      left: 0;
-      right: 0;
-      padding-top: 20px;
-  }
-
-  .nav-menu a {
-      display: block;
-      color: #fff;
-      padding: 10px;
-      text-decoration: none;
-  }
-
-  .nav-menu a:hover {
-      background-color: #444;
-  }
+header {
+    height: 100px; /* Reduced header for mobile */
 }
 
-/* For toggle button and menu active state */
-body.menu-open .nav-menu {
-  display: block;
+.logo img {
+    width: 150px; /* Smaller logo */
+    height:80px;
+}
 }
 
 /* Tablet and larger screens */
