@@ -156,15 +156,18 @@ header {
   }
 }
 
-/* Mobile Screens */
 @media (max-width: 480px) {
   header {
-      height: 100px; /* Reduced header for mobile */
+      height: auto; /* Adjust header height based on content */
+      padding: 10px; /* Add padding to ensure space around the logo and toggle menu */
+      display: flex;
+      justify-content: space-between;
+      align-items: center; /* Vertically center the items */
   }
 
   .logo img {
       width: 150px; /* Smaller logo */
-      height: 80px;
+      height: auto; /* Ensure logo maintains aspect ratio */
   }
 
   /* Hamburger Menu */
@@ -174,7 +177,6 @@ header {
       border: none;
       padding: 10px;
       cursor: pointer;
-      position: relative;
       z-index: 100;
   }
 
@@ -198,7 +200,7 @@ header {
       display: block;
       background-color: #333;
       position: absolute;
-      top: 100px;
+      top: 100px; /* Ensure the menu appears below the header */
       left: 0;
       right: 0;
       padding-top: 20px;
