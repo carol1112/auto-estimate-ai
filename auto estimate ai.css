@@ -801,7 +801,7 @@ body {
   /* Mobile View */
   @media (max-width: 600px) {
       #benefits {
-          padding: 50px 10px;
+          padding: 80px 10px;
       }
       
       .about-us h2 {
@@ -831,9 +831,9 @@ body {
   }
 
   /* Small Mobile View */
-  @media (max-width: 400px) {
+  @media (max-width: 480px) {
       #benefits {
-          padding: 40px 10px;
+          padding: 100px 10px;
       }
       
       .about-us h2 {
@@ -965,86 +965,155 @@ body {
 }
 
   /*SERVICES*/
-
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Service Section */
   #service {
-    height: 100vh; /* Full viewport height */
+    min-height: 100vh;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color:  #fff;
-    display: flex; /* Enables flexbox */
-    justify-content: center; /* Centers .faq-container horizontally */
-    align-items: center; /* Centers .faq-container vertically */
-   background: #fff;/* Optional: Light background for contrast */
-   padding: 20px; /* Adds spacing */
-
-}
-
-.container2 {
+    padding: 80px 20px 40px;
+    background-color: #fff;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* Container Flexbox Layout */
+  .container2 {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 70px;
+    gap: 30px;
+    padding: 60px 30px;
     max-width: 1200px;
-    margin: auto;
+    width: 80%; /* Adjusted for desktop */
+    margin: 0 auto;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.container2 p {
-    text-align: justify; /* Justifies the text */
-    text-indent: 2em; /* Adds an indentation of 2em */
-}
-
-.image-section {
-    flex: 1;
+  }
+  
+  /* Image Section */
+  .image-section {
+    flex: 1 1 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-}
-
-/* Image Styling */
-.image-section img {
-    max-width: 100%;
+  }
+  
+  .image-section img {
+    width: 100%;
+    max-width: 450px; /* Adjusted max-width for better scaling */
+    height: auto;
     border-radius: 10px;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
-}
-
-/* Hover Effect */
-.image-section img:hover {
-    opacity: 0.7; /* Reduces opacity on hover */
-    transform: scale(1.05); /* Slight zoom-in effect */
-}
-
-.content-section {
-    flex: 1;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    object-fit: cover;
+  }
+  
+  .image-section img:hover {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  
+  /* Content Section */
+  .content-section {
+    flex: 1 1 50%;
     padding: 20px;
-}
-
-.content-section h2 {
-    color:purple;
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.content-section p {
-    font-size: 16px;
+  }
+  
+  .content-section h2 {
+    color: purple;
+    font-size: clamp(1.8rem, 2vw, 2.2rem);
+    margin-bottom: 15px;
+  }
+  
+  .content-section p {
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
     color: #333;
     line-height: 1.6;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+    text-align: justify;
+    text-indent: 2em;
+  }
+  
+  /* Tablet Screens */
+  @media (max-width: 1024px) {
     .container2 {
-        flex-direction: column;
-        text-align: center;
+      width: 90%; /* Slightly wider on smaller screens */
+      padding: 50px 20px;
     }
+  
+    .image-section img {
+      max-width: 100%; /* Allow full width inside flex column */
+    }
+  
+    .content-section h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Mobile & Smaller Tablets */
+  @media (max-width: 768px) {
+    .container2 {
+      flex-direction: column;
+      padding: 40px 15px;
+      width: 95%;
+      text-align: center;
+    }
+  
+    .image-section,
+    .content-section {
+      flex: 1 1 100%;
+      padding: 10px 0;
+    }
+  
     .image-section {
-        order: -1;
+      order: -1;
     }
-}
+  
+    .image-section img {
+      max-width: 90%;
+    }
+  
+    .content-section p {
+      text-indent: 1.5em;
+    }
+  }
+  
+  /* Small Mobile Screens */
+  @media (max-width: 480px) {
+    #service {
+      padding: 60px 10px 30px;
+    }
+  
+    .container2 {
+      padding: 30px 10px;
+      gap: 20px;
+      width: 98%;
+    }
+  
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .content-section h2 {
+      font-size: 1.6rem;
+    }
+  
+    .content-section p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      text-indent: 1.2em;
+    }
+  }
+  
 /* AI Estimation Services Section */
 
 
