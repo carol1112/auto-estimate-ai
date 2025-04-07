@@ -8,15 +8,15 @@
 </head>
 </head>
 <body>
-    <header class="header">
+    <header>
         <div class="logo">
             <img src="AUTO ESTIMATE AI LOGO1.gif" alt="LOGO">
         </div>
-        <div class="menu-toggle">☰</div>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="auto estimate ai.html">Home</a></li>
-                <li class="nav-item dropdown">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul class="menu" id="menu">
+                <li><a href="auto estimate ai.html">Home</a></li>
+                <li class="dropdown">
                     <a href="autoestimateabout-us.html">About Us ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="autoestimatemission.html">Mission</a></li>
@@ -24,23 +24,20 @@
                         <li><a href="autoestimatebenefits.html">Key Benefits</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="autoestimateservice.html">Service</a></li>
-                <li class="nav-item"><a href="autoestimatefaqs.html">FAQS</a></li>
-                <li class="nav-item"><a href="autoestimatecontact.html">Contact</a></li>
+                <li><a href="autoestimateservice.html">Service</a></li>
+                <li><a href="autoestimatefaqs.html">FAQS</a></li>
+                <li><a href="autoestimatecontact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const menuToggle = document.querySelector(".menu-toggle");
-        const nav = document.querySelector(".nav");
-        menuToggle.addEventListener("click", function() {
-            nav.classList.toggle("active");
-        });
-    });
-</script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+    </script>
 
-    <hr>
+
+   
     <!-- Mission Section -->
     <section id="mission">
         <h1>AuTo Estimate AI Goal, Mission, Vision</h1>
