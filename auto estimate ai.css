@@ -599,7 +599,7 @@ body {
 @media (max-width: 480px) {
   #mission {
     min-height: auto;
-    padding: 80px 10px 20px; /* Top padding increased to avoid header */
+    padding: 120px 10px 20px; /* Top padding increased to avoid header */
     justify-content: flex-start;
   }
 
