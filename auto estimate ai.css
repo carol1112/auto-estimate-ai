@@ -604,44 +604,45 @@ body {
 }
 
 /* Mobile View - Enhanced */
-@media (max-width: 480px) {
-  #mission {
-    min-height: 70vh;
-    padding: 10px;
-    padding-top: 45px;
-  }
 
-  #mission h1 {
-    margin-bottom: 15px;
-    padding: 10px 5px;
-    font-size: clamp(1.3rem, 6vw, 1.8rem);
+  @media (max-width: 480px) {
+    #mission {
+      min-height: auto; /* Changed from fixed height */
+      padding: 70px 10px 20px; /* Top padding increased to avoid header overlap */
+      box-sizing: border-box;
+      justify-content: flex-start; /* Avoid vertical centering on small screens */
+    }
+  
+    #mission h1 {
+      margin-bottom: 15px;
+      padding: 0 5px;
+      font-size: clamp(1.3rem, 6vw, 1.8rem);
+    }
+  
+    .slider-container {
+      width: 100%;
+      border-radius: 10px;
+      min-height: 250px;
+      max-height: 100%;
+    }
+  
+    .slide {
+      padding: 25px 10px;
+      min-height: auto;
+      justify-content: center;
+    }
+  
+    .slide h2 {
+      font-size: clamp(1.3rem, 6vw, 1.8rem);
+      width: 95%;
+    }
+  
+    .slide p {
+      max-width: 95%;
+      font-size: clamp(0.95rem, 4vw, 1.1rem);
+      line-height: 1.5;
+    }
   }
-
-  .slider-container {
-    width: 100%;
-    border-radius: 10px;
-    min-height: 200px;
-    max-height: 50vh;
-  }
-
-  .slide {
-    padding: 25px 10px;
-    min-height: 200px;
-    justify-content: center;
-  }
-
-  .slide h2 {
-    font-size: clamp(1.3rem, 6vw, 1.8rem);
-    width: 95%;
-  }
-
-  .slide p {
-    max-width: 95%;
-    font-size: clamp(0.95rem, 4vw, 1.1rem);
-    line-height: 1.5;
-  }
-}
-
 /* Very small screens - Enhanced */
 @media (max-width: 360px) {
   #mission {
@@ -1152,28 +1153,32 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .services-estimate-section {
-    padding: 50px 10px;
+  @media (max-width: 480px) {
+    .services-estimate-section {
+      padding: 80px 10px 40px;
+    }
+  
+    .services-estimate-section h2 {
+      font-size: 2rem;
+    }
+  
+    .services-estimate-section .subtitle {
+      font-size: 0.95rem;
+    }
+  
+    .services-box {
+      padding: 20px;
+    }
+  
+    .services-box h3 {
+      font-size: 1.3rem;
+    }
+  
+    .services-box p {
+      font-size: 0.95rem;
+    }
   }
-
-  .services-estimate-section h2 {
-    font-size: 2rem;
-  }
-
-  .services-estimate-section .subtitle {
-    font-size: 0.95rem;
-  }
-
-  .services-box h3 {
-    font-size: 1.3rem;
-  }
-
-  .services-box p {
-    font-size: 0.95rem;
-  }
-}
-
+  
 
 
 /*faqs*/
