@@ -16,7 +16,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgb(228, 67, 67);
+  background-color: rgb(228, 67, 67);
   padding: 8px 15px; /* Reduced padding */
   width: 100%;
   position: fixed;
@@ -59,7 +59,7 @@ header {
   list-style: none;
   top: 100%;
   left: 0;
-  background: red;
+  background-color: red;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   display: none;
@@ -130,7 +130,7 @@ header {
       top: 100%;
       left: 0;
       width: 100%;
-      background: red;
+      background-color: red;
       text-align: center;
       padding: 10px 0;
   }
@@ -370,7 +370,7 @@ body {
 /* Small Mobile View */
 @media (max-width: 400px) {
   .about {
-    padding: 30px 10px;
+    padding: 60px 10px;
   }
 
   .about h2 {
@@ -498,7 +498,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 5px;
-  padding-top: 10px; /* Reduced padding between header and section */
+  padding-top: 20px; /* Reduced padding between header and section */
  
   box-sizing: border-box;
   overflow: hidden;
@@ -608,7 +608,7 @@ body {
   #mission {
     min-height: 70vh;
     padding: 10px;
-    padding-top: 15px;
+    padding-top: 45px;
   }
 
   #mission h1 {
@@ -842,6 +842,11 @@ body {
       .about-us .subtitle {
           font-size: 1rem;
       }
+      .features-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        gap: 15px;
+    }
   }
 /* gallery display*/
 
@@ -1304,7 +1309,7 @@ line-height: 1.2;
 .form-header h1 {
 font-size: 1.8rem;
 color: white;
-margin-bottom: 20px;
+margin-bottom: 10px;
 font-weight: 400;
 line-height: 1.4;
 }
