@@ -689,7 +689,7 @@ body {
 @media (min-width: 1025px) and (max-width: 1336px) {
   #mission {
     padding-top: 60px; /* Balanced padding from top */
-    scroll-margin-top: 60px; /* Keeps anchor visibility clean */
+    scroll-margin-top: 20px; /* Keeps anchor visibility clean */
     justify-content: center;
   }
 
