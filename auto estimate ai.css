@@ -488,7 +488,8 @@ body {
       max-height: 250px;
   }
 }
-/*mission*/
+/* Mission Section */
+
 #mission {
   font-family: Arial, sans-serif;
   min-height: 80vh;
@@ -498,10 +499,10 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  padding-top: 80px; /* Ensures space for header */
+  padding-top: 160px; /* Default space for large header */
+  scroll-margin-top: 180px; /* Fix anchor jump overlap */
   box-sizing: border-box;
   overflow: hidden;
-  scroll-margin-top: 100px; /* Fixes anchor jump overlap */
 }
 
 #mission h1 {
@@ -519,7 +520,7 @@ body {
   max-width: 900px;
   height: auto;
   min-height: 300px;
-  max-height: 80vh;
+  max-height: 75vh;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -575,14 +576,15 @@ body {
 /* Tablet View */
 @media (max-width: 768px) {
   #mission {
-    padding-top: 70px; /* More space for header on tablet */
+    padding-top: 130px;
+    scroll-margin-top: 140px;
     justify-content: flex-start;
   }
 
   .slider-container {
     width: 95%;
     min-height: 250px;
-    max-height: 60vh;
+    max-height: 65vh;
   }
 
   .slide {
@@ -593,18 +595,24 @@ body {
   .slide p {
     max-width: 90%;
   }
+
+  #mission h1 {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    margin-bottom: 15px;
+  }
 }
 
 /* Mobile View */
 @media (max-width: 480px) {
   #mission {
     min-height: auto;
-    padding: 120px 10px 20px; /* Top padding increased to avoid header */
+    padding: 120px 10px 20px;
+    scroll-margin-top: 130px;
     justify-content: flex-start;
   }
 
   #mission h1 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     padding: 0 5px;
     font-size: clamp(1.3rem, 6vw, 1.8rem);
   }
@@ -636,7 +644,8 @@ body {
 /* Very Small Screens */
 @media (max-width: 360px) {
   #mission {
-    padding-top: 75px;
+    padding-top: 100px;
+    scroll-margin-top: 110px;
     min-height: 65vh;
   }
 
@@ -660,7 +669,8 @@ body {
 @media (max-height: 500px) and (orientation: landscape) {
   #mission {
     min-height: 120vh;
-    padding-top: 80px;
+    padding-top: 100px;
+    scroll-margin-top: 110px;
   }
 
   .slider-container {
@@ -674,6 +684,41 @@ body {
   }
 }
 
+* Laptop Screens */
+/* Laptop Screens */
+@media (min-width: 1025px) and (max-width: 1336px) {
+  #mission {
+    padding-top: 60px; /* Balanced padding from top */
+    scroll-margin-top: 60px; /* Keeps anchor visibility clean */
+    justify-content: center;
+  }
+
+  .slider-container {
+    width: 85%;
+    max-width: 800px;
+    min-height: 300px;
+    max-height: 70vh;
+  }
+
+  .slide {
+    padding: 30px 20px; /* Reduced padding slightly for better layout */
+    min-height: 280px; /* Slightly lower to reduce vertical space */
+  }
+
+  #mission h1 {
+    font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+    margin-bottom: 16px;
+  }
+
+  .slide h2 {
+    font-size: clamp(1.6rem, 3.2vw, 2rem);
+  }
+
+  .slide p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    max-width: 85%;
+  }
+}
 
   /* Benefits Section - Enhanced */
   #benefits {
