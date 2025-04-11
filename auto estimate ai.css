@@ -1031,19 +1031,21 @@ body {
 /* ===== Small Mobile View (400px and below) ===== */
 @media (max-width: 400px) {
   .container-gallery {
-    padding: 60px 10px;
+    padding: 90px 10px 30px; /* Increased top padding to avoid overlap with header */
   }
 
   .container-gallery h2 {
     font-size: 1.6rem;
+    margin-bottom: 8px; /* Slight margin for visual spacing */
   }
 
   .container-gallery .subtitle {
     font-size: 0.95rem;
+    margin-bottom: 20px; /* Add margin for better readability */
   }
 
   .photo-gallery {
-    gap: 12px;
+    gap: 14px; /* Slightly increased gap for visual breathing room */
   }
 
   .photo-card {
@@ -1051,7 +1053,6 @@ body {
     aspect-ratio: 16 / 10;
   }
 }
-
   /*SERVICES*/
   * {
     box-sizing: border-box;
