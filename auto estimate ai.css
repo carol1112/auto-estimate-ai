@@ -1028,10 +1028,10 @@ body {
   }
 }
 
-/* ===== Small Mobile View (400px and below) ===== */
+/* ===== Small Mobile View (480px and below) ===== */
 @media (max-width: 400px) {
   .container-gallery {
-    padding: 90px 10px 30px; /* Increased top padding to avoid overlap with header */
+    padding: 110px 10px 30px; /* Increased top padding to avoid overlap with header */
   }
 
   .container-gallery h2 {
