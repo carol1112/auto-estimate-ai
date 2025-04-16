@@ -1,4 +1,5 @@
 /* Reset and Base Styles */
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@
 
 body {
   background-color: #f4f4f4;
-  
+  padding-top: 150px; /* Add padding to body to account for fixed header */
 }
 
 /* Header */
@@ -16,21 +17,22 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(228, 67, 67);
-  padding: 8px 15px; /* Reduced padding */
+  background: red;
+  padding: 15px 20px;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  height: 150px; /* Decreased height */
+  height: 150px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Logo */
 .logo img {
-  width: 200px;  /* Smaller logo */
+  width: 200px;
   height: 150px;
+  object-fit: contain;
 }
 
 /* Menu */
@@ -39,7 +41,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px; /* Adjusted gap */
+  gap: 20px;
 }
 
 .menu li {
@@ -47,37 +49,62 @@ header {
 }
 
 .menu li a {
-  text-decoration:none; 
+  text-decoration: none;
   color: white;
-  font-size: 18px; /* Slightly smaller text */
-  padding: 6px 10px; /* Adjusted padding */
-  transition: 0.3s;
+  font-size: 18px;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  display: block;
 }
 
-/* Dropdown */
+/* Enhanced Dropdown Menu */
 .dropdown-menu {
   list-style: none;
+  position: absolute;
   top: 100%;
   left: 0;
-  background-color: red;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  background: red;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
   display: none;
-  min-width: 150px; /* Adjusted width */
-  position: absolute;
-  text-align: center;
-  padding: 10px 15px;
-  gap: 15px
+  min-width: 180px;
+  padding: 10px 0;
+  z-index: 1001;
+
+
+}
+
+.dropdown-menu li {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  text-align: left;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.dropdown-menu li a:hover {
+  background-color:red;
+  color: black;
+  text-decoration: underline;
+
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
+ 
 }
 
+/* Hover Effects */
 .menu li a:hover, .dropdown-menu li a:hover {
-  color: black;
-  border-radius: 5px;
-  text-decoration:underline; 
+  color:black;
+  text-decoration: underline;
 }
 
 /* Toggle Menu */
@@ -86,108 +113,145 @@ header {
   font-size: 24px;
   color: white;
   cursor: pointer;
+  padding: 10px;
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) { /* Laptops */
+@media (max-width: 1024px) {
+  body {
+    padding-top: 100px;
+  }
+  
   header {
-      height: 100px; /* Reduced header height more */
-      padding: 6px 12px;
+    height: 120px;
+    padding: 10px 15px;
   }
 
   .logo img {
-      width: 75px; /* Further reduced logo size */
-      height:60px;
+    width: 250px;
+    height: 100px;
+    object-fit: contain;
   }
 
   .menu li a {
-      font-size: 13px; /* Adjusted font size */
-      padding: 5px 8px;
+    font-size: 15px;
+    padding: 6px 10px;
+  }
+
+  .dropdown-menu {
+    min-width: 160px;
+    padding: 8px 0;
+  }
+
+  .dropdown-menu li a {
+    font-size: 14px;
+    padding: 8px 15px;
   }
 }
 
-@media (max-width: 768px) { /* Tablets and small screens */
+@media (max-width: 768px) {
+  body {
+    padding-top: 55px;
+  }
+  
   header {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      height: 55px; /* Smaller header for tablets */
-      padding: 6px 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 55px;
+    padding: 5px 10px;
   }
 
   .logo img {
-      width: 70px; /* Smaller logo */
+    width: 70px;
+    height: auto;
   }
 
   .menu-toggle {
-      display: block;
+    display: block;
   }
 
   .menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background-color: red;
-      text-align: center;
-      padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: red;
+    padding: 10px 0;
+    gap: 5px;
   }
 
   .menu.active {
-      display: flex;
+    display: flex;
   }
 
-  /* Dropdown for Mobile */
+  .menu li {
+    width: 100%;
+  }
+
+  .menu li a {
+    padding: 12px 20px;
+    text-align: center;
+  }
+
   .dropdown-menu {
     position: static;
     width: 100%;
-}
+    box-shadow: none;
+    display: none;
+    padding: 0;
+    opacity: 1;
+    transform: none;
+    min-width: auto;
+  }
 
-.dropdown-menu li a {
-    padding: 10px;
-    background-color:red;
-    color: white;
-}
-
-.dropdown:hover .dropdown-menu {
+  .dropdown-menu.active {
     display: block;
-}
+  }
+
+  .dropdown-menu li a {
+    padding: 10px 30px;
+    font-size: 14px;
+    text-align: center;
+    background-color: red;
+  }
 }
 
-/* Mobile Screens */
 @media (max-width: 480px) {
-header {
-    height: 160px; /* Reduced header for mobile */
-}
+  body {
+    padding-top: 120px;
+  }
+  
+  header {
+    height: 120px;
+  }
 
-.logo img {
-    width: 150px; /* Smaller logo */
-    height:80px;
-}
+  .logo img {
+    width: 150px;
+    height: 80px;
+  }
+
+  .dropdown-menu li a {
+    padding: 12px 40px;
+  }
 }
 
 /* Tablet and larger screens */
 @media (min-width: 769px) {
   .menu {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+    display: flex;
+    flex-direction: row;
   }
 
   .menu-toggle {
-      display: none;
-  }
-
-  .dropdown-menu {
-      display: none;
-  }
-
-  .dropdown:hover .dropdown-menu {
-      display: block;
+    display: none;
   }
 }
+
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -426,6 +490,7 @@ body {
 }
 /* Home Section Styling */
 /* Base reset and full viewport sizing */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -441,6 +506,7 @@ html, body {
   padding: 20px;
   box-sizing: border-box;
   background:black;
+  padding-top: 60px;
 }
 
 .video-container {
@@ -483,8 +549,8 @@ html, body {
 @media (min-width: 992px) and (max-width: 1199px) {
   #home {
       height: 100vh;
-      padding-top: 0px; /* Minimal top spacing */
-      padding-bottom: 20px;
+      padding-top: 10px; /* Minimal top spacing */
+      padding-bottom: 30px;
   }
   .video-container {
       max-width: 500px; /* Even more compact */
@@ -554,7 +620,8 @@ html, body {
   .video-wrapper {
       padding-bottom: 50%;
   }
-}
+} 
+
 /* Mission Section */
 
 /* Base Styles */
